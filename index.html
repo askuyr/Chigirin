@@ -218,7 +218,7 @@ p{max-width:72ch}
 .services-grid,.reasons-grid,.practice-cards{display:grid;gap:22px}
 .services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
 .reasons-grid{grid-template-columns:repeat(4,1fr)}
-.practice-cards{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.practice-cards{grid-template-columns:repeat(3,minmax(280px,1fr));align-items:stretch}
 .card{
   padding:28px;border-radius:24px;background:linear-gradient(180deg, rgba(75,62,41,.74), rgba(43,30,21,.84));
   border:1px solid rgba(241,185,120,.14);box-shadow:0 12px 28px rgba(0,0,0,.18);position:relative;overflow:hidden
@@ -259,7 +259,9 @@ p{max-width:72ch}
 .reason p{color:#eadccb;font-size:16px;line-height:1.76}
 
 .practice-card .label{display:inline-block;margin-bottom:14px;padding:6px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#f2d5aa;background:rgba(232,137,47,.10);border:1px solid rgba(241,185,120,.18)}
-.practice-card{min-height:420px;display:flex;flex-direction:column}
+.practice-card{min-height:360px;display:flex;flex-direction:column;overflow:visible}
+.practice-card h3{font-size:30px;max-width:100%;}
+.practice-card ul{flex:1;}
 .practice-card ul{padding-left:20px;margin:12px 0 0;color:#eee0cd;line-height:1.7}
 .practice-card li{margin-bottom:10px}
 .practice-card li+li{margin-top:8px}
@@ -292,6 +294,7 @@ textarea{min-height:148px;resize:vertical}
 .hero-card{animation:pulseGlow 6s ease-in-out infinite}
 
 @media (max-width:1080px){
+  .practice-cards{grid-template-columns:1fr 1fr}
   .hero-layout,.about-grid,.practice-grid,.contact-layout{grid-template-columns:1fr;gap:34px}
   .hero-card{justify-self:center;max-width:520px}
   .services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
@@ -403,12 +406,13 @@ textarea{min-height:148px;resize:vertical}
       <div class="reveal">
         <div class="eyebrow">Обо мне</div>
         <h2>Спокойная подача.<br>Точная работа с сутью вопроса.</h2>
-        <p class="lead">Юридическая помощь должна не усложнять ситуацию, а делать её понятнее. В работе важны внимательный анализ, конфиденциальность, аккуратность в документах и понимание, к какому результату нужно прийти.</p>
+        <p class="lead">Кирилл Чигирин — юрист, осуществляющий профессиональную деятельность в правовой сфере и принимающий участие в муниципальной деятельности в Санкт-Петербурге.</p>
+        <p class="lead" style="margin-top:18px;font-size:16px">В основе работы — внимательное изучение обстоятельств, документов и поиск понятного решения с учётом интересов клиента.</p>
       </div>
       <div class="feature-list reveal">
-        <div class="feature-item"><span>01</span><p>Разбор ситуации по фактам, документам и срокам — без догадок и лишней суеты.</p></div>
-        <div class="feature-item"><span>02</span><p>Подготовка понятной стратегии: что делать сейчас, что можно отложить и какие риски учитывать.</p></div>
-        <div class="feature-item"><span>03</span><p>Аккуратная коммуникация с клиентом: объяснение шагов, логики и дальнейших действий простым языком.</p></div>
+        <div class="feature-item"><span>01</span><p><strong>Образование</strong><br>Магистр экономики. Аспирант юридического факультета Санкт-Петербургского университета технологий управления и экономики.</p></div>
+        <div class="feature-item"><span>02</span><p><strong>Профессиональный путь</strong><br>Опыт работы в юридической сфере и развитие собственной практики.</p></div>
+        <div class="feature-item"><span>03</span><p><strong>Муниципальная деятельность</strong><br>Заместитель Главы муниципального образования «Морские ворота».</p></div>
       </div>
     </div>
   </section>

@@ -289,8 +289,6 @@ p{max-width:72ch}
 .contact-item{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(241,185,120,.10)}
 .contact-item strong{display:block;color:var(--gold-soft);margin-bottom:6px;font-weight:700}
 .form{display:grid;gap:14px}
-.application-form{display:grid;gap:14px;margin-top:22px}.application-form .input,.application-form textarea{font-size:16px}.form-result{color:#F1B978;font-size:14px;min-height:20px}.download-note{font-size:13px;color:#cbb89c;line-height:1.6}
-
 .input,textarea{
   width:100%;border-radius:16px;border:1px solid rgba(241,185,120,.18);background:rgba(255,255,255,.045);color:var(--text);padding:16px 18px
 }
@@ -357,6 +355,14 @@ textarea{min-height:148px;resize:vertical}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
 }
+
+.consult-form{max-width:760px;margin:40px auto 0;padding:32px;border-radius:28px;background:rgba(75,62,41,.55);border:1px solid rgba(241,185,120,.18);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.consult-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.consult-form input,.consult-form textarea,.consult-form select{width:100%;padding:15px 16px;border-radius:14px;border:1px solid rgba(241,185,120,.2);background:rgba(255,255,255,.04);color:#f3e8db;font-size:16px}
+.consult-form textarea{min-height:130px;resize:vertical}
+.consult-form .full{grid-column:1/-1}
+.consult-form label{display:block;color:#e9d7bf;margin-bottom:8px;font-size:14px}
+@media(max-width:760px){.consult-form-grid{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {
@@ -373,6 +379,8 @@ textarea{min-height:148px;resize:vertical}
   ]
 }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
 <a href="#main" class="skip">Перейти к содержанию</a>
@@ -520,6 +528,31 @@ textarea{min-height:148px;resize:vertical}
     </div>
   </section>
 
+
+<section class="section" id="consultation">
+<div class="wrap">
+<div class="eyebrow">Обращение</div>
+<h2>Получить юридическую консультацию</h2>
+<p class="lead">Заполните форму. После отправки будет сформировано обращение в формате Word.</p>
+<form class="consult-form reveal" id="consultForm">
+<div class="consult-form-grid">
+<div><label>ФИО</label><input id="clientName" required></div>
+<div><label>Контакт для связи</label><input id="clientContact" required></div>
+<div><label>Категория вопроса</label>
+<select id="clientCategory">
+<option>Гражданское право</option>
+<option>Договорные вопросы</option>
+<option>Судебное сопровождение</option>
+<option>Семейные вопросы</option>
+<option>Другое</option>
+</select></div>
+<div class="full"><label>Описание ситуации</label><textarea id="clientText" required></textarea></div>
+<div class="full"><label>Дополнительная информация</label><textarea id="clientExtra"></textarea></div>
+<div class="full"><button class="button primary" type="submit">Сформировать обращение</button></div>
+</div>
+</form>
+</div>
+</section>
 <section class="section contact" id="contact">
     <div class="wrap contact-layout">
       <div class="contact-panel reveal">
@@ -533,17 +566,9 @@ textarea{min-height:148px;resize:vertical}
         </div>
       </div>
       <div class="contact-panel reveal contact-note">
-        <div class="eyebrow">Обращение</div>
+        <div class="eyebrow">Связь</div>
         <h2>Получить консультацию</h2>
-        <p class="lead">Заполните информацию. Сайт сформирует документ Word с обращением в юридическое бюро Чигирина.</p>
-        <form class="application-form" id="consultationForm">
-          <input class="input" name="name" placeholder="Ваше имя" required>
-          <input class="input" name="phone" placeholder="Телефон или способ связи" required>
-          <textarea name="message" placeholder="Опишите вопрос"></textarea>
-          <button class="button primary" type="submit">Создать обращение Word</button>
-          <div class="form-result" id="formResult"></div>
-          <div class="download-note">После скачивания документа его можно отправить на электронную почту юридического бюро.</div>
-        </form>
+        <p class="lead">Для связи используйте телефон или электронную почту. Опишите ситуацию кратко — это поможет быстрее определить порядок дальнейших действий.</p>
       </div>
     </div>
   </section>
@@ -557,7 +582,6 @@ textarea{min-height:148px;resize:vertical}
   </div>
 </footer>
 
-<script src="assets/chigirin-docx.js"></script>
 <script>
 const button=document.querySelector('.menu');
 const nav=document.querySelector('#navigation');
@@ -592,26 +616,32 @@ if(consultationBtn){
  setConsultationLink();
  window.addEventListener('resize',setConsultationLink);
 }
-const consultationForm=document.getElementById('consultationForm');
-const formResult=document.getElementById('formResult');
-consultationForm?.addEventListener('submit', async (event)=>{
- event.preventDefault();
- const data=new FormData(consultationForm);
- const blob=await NPProposalDocx.buildProposalDocx({
-   title:'Обращение на юридическую консультацию',
-   name:data.get('name'),
-   role:'Клиент юридического бюро Чигирина',
-   contact:data.get('phone'),
-   problem:data.get('message') || 'Не указано',
-   result:'Требуется рассмотрение обращения и обратная связь.'
- });
- const url=URL.createObjectURL(blob);
- const a=document.createElement('a');
- a.href=url;
- a.download='Обращение_юридическое_бюро_Чигирина.docx';
- a.click();
- URL.revokeObjectURL(url);
- formResult.textContent='Документ Word создан и скачан. Его можно отправить на электронную почту.';
+
+document.getElementById('consultForm')?.addEventListener('submit', async function(e){
+ e.preventDefault();
+ const {Document,Packer,Paragraph,TextRun}=docx;
+ const date=new Date().toLocaleDateString('ru-RU');
+ const text=[
+ 'ЮРИДИЧЕСКОЕ БЮРО ЧИГИРИНА',
+ 'ОБРАЩЕНИЕ НА ЮРИДИЧЕСКУЮ КОНСУЛЬТАЦИЮ',
+ '',
+ 'Дата обращения: '+date,
+ '',
+ 'ДАННЫЕ ЗАЯВИТЕЛЯ',
+ 'ФИО: '+clientName.value,
+ 'Контакт: '+clientContact.value,
+ '',
+ 'Категория вопроса: '+clientCategory.value,
+ '',
+ 'ОПИСАНИЕ СИТУАЦИИ',
+ clientText.value,
+ '',
+ 'ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ',
+ clientExtra.value
+ ];
+ const doc=new Document({sections:[{children:text.map(t=>new Paragraph({children:[new TextRun({text:t})]}))}]});
+ const blob=await Packer.toBlob(doc);
+ saveAs(blob,'Обращение_Юридическое_бюро_Чигирина.docx');
 });
 </script>
 </body>

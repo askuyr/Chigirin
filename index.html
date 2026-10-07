@@ -381,7 +381,6 @@ textarea{min-height:148px;resize:vertical}
   ]
 }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
 <a href="#main" class="skip">Перейти к содержанию</a>
@@ -530,30 +529,6 @@ textarea{min-height:148px;resize:vertical}
   </section>
 
 
-<section class="section" id="consultation">
-<div class="wrap">
-<div class="eyebrow">Обращение</div>
-<h2></h2>
-<p class="lead">Заполните форму. </p>
-<form class="consult-form reveal" >
-<div class="consult-form-grid">
-<div><label>ФИО</label><input id="clientName" required></div>
-<div><label>Контакт для связи</label><input id="clientContact" required></div>
-<div><label>Категория вопроса</label>
-<select id="clientCategory">
-<option>Гражданское право</option>
-<option>Договорные вопросы</option>
-<option>Судебное сопровождение</option>
-<option>Семейные вопросы</option>
-<option>Другое</option>
-</select></div>
-<div class="full"><label>Описание ситуации</label><textarea id="clientText" required></textarea></div>
-<div class="full"><label>Дополнительная информация</label><textarea id="clientExtra"></textarea></div>
-<div class="full"><button class="button primary" type="submit">Получить консультацию</button></div>
-</div>
-</form>
-</div>
-</section>
 <section class="section contact" id="contact">
     <div class="wrap contact-layout">
       <div class="contact-panel reveal">
@@ -585,57 +560,29 @@ textarea{min-height:148px;resize:vertical}
 
 <script>
 const nav=document.querySelector('#navigation');
-function closeMenu(){button.setAttribute('aria-expanded','false');nav.classList.remove('open')}
-button?.addEventListener('click',()=>{
+const button=document.querySelector('.menu');
+function closeMenu(){
+  if(button) button.setAttribute('aria-expanded','false');
+  if(nav) nav.classList.remove('open');
+}
+if(button){
+ button.addEventListener('click',()=>{
   const open=button.getAttribute('aria-expanded')!=='true';
   button.setAttribute('aria-expanded',String(open));
   nav.classList.toggle('open',open);
-});
+ });
+}
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 
 const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
-  });
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('is-visible');
+   observer.unobserve(entry.target);
+  }
+ });
 },{threshold:.16});
-
-if(consultationBtn){
- const setConsultationLink=()=>{
-   if(window.innerWidth<=760){
-     consultationBtn.href='tel:+79219746517';
-   } else {
-     consultationBtn.href='#contact';
-   }
- };
- setConsultationLink();
- window.addEventListener('resize',setConsultationLink);
-}
-
- e.preventDefault();
- const date=new Date().toLocaleDateString('ru-RU');
- const text=[
- 'ЮРИДИЧЕСКОЕ БЮРО ЧИГИРИНА',
- 'ОБРАЩЕНИЕ НА ЮРИДИЧЕСКУЮ КОНСУЛЬТАЦИЮ',
- '',
- 'Дата обращения: '+date,
- '',
- 'ДАННЫЕ ЗАЯВИТЕЛЯ',
- 'ФИО: '+clientName.value,
- 'Контакт: '+clientContact.value,
- '',
- 'Категория вопроса: '+clientCategory.value,
- '',
- 'ОПИСАНИЕ СИТУАЦИИ',
- clientText.value,
- '',
- 'ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ',
- clientExtra.value
- ];
- const blob=await Packer.toBlob(doc);
-});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>

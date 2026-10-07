@@ -214,7 +214,7 @@ p{max-width:72ch}
 .metric strong{display:block;font:600 34px/1 "Cormorant Garamond",Georgia,serif;color:var(--gold-soft);margin-bottom:10px}
 .metric span{color:var(--muted);font-size:14px;display:block}
 
-.about-grid,.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.about-grid,.contact-layout{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
 .practice-grid{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr);gap:42px;align-items:start}
 .services-grid,.reasons-grid,.practice-cards{display:grid;gap:22px}
 .services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
@@ -289,6 +289,8 @@ p{max-width:72ch}
 .contact-item{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(241,185,120,.10)}
 .contact-item strong{display:block;color:var(--gold-soft);margin-bottom:6px;font-weight:700}
 .form{display:grid;gap:14px}
+.application-form{display:grid;gap:14px;margin-top:22px}.application-form .input,.application-form textarea{font-size:16px}.form-result{color:#F1B978;font-size:14px;min-height:20px}.download-note{font-size:13px;color:#cbb89c;line-height:1.6}
+
 .input,textarea{
   width:100%;border-radius:16px;border:1px solid rgba(241,185,120,.18);background:rgba(255,255,255,.045);color:var(--text);padding:16px 18px
 }
@@ -523,21 +525,24 @@ textarea{min-height:148px;resize:vertical}
       <div class="contact-panel reveal">
         <div class="eyebrow">Контакты</div>
         <h2>Начните с вопроса — разберём, как двигаться дальше.</h2>
-        <p class="lead">Можно позвонить, написать на почту или связаться через ВКонтакте. Чем короче и точнее вы опишете ситуацию, тем проще сразу перейти к сути.</p>
+        <p class="lead">Можно позвонить или написать на электронную почту. Чем короче и точнее вы опишете ситуацию, тем проще перейти к сути вопроса.</p>
         <div class="contact-list">
           <div class="contact-item"><strong>Телефон</strong><a href="tel:+79219746517">+7 (921) 974-65-17</a></div>
           <div class="contact-item"><strong>E-mail</strong><a href="mailto:c.chigirin@yandex.ru">c.chigirin@yandex.ru</a></div>
 
         </div>
       </div>
-      <div class="contact-panel reveal">
-        <div class="eyebrow">Сообщение</div>
-        <h2>Кратко опишите ваш вопрос.</h2>
-        <form class="form" action="mailto:c.chigirin@yandex.ru" method="post" enctype="text/plain">
-          <input class="input" type="text" name="name" placeholder="Ваше имя">
-          <input class="input" type="tel" name="phone" placeholder="Телефон или удобный способ связи">
-          <textarea name="message" placeholder="Опишите ситуацию в нескольких предложениях"></textarea>
-          <button class="button primary" type="submit">Отправить заявку на почту</button>
+      <div class="contact-panel reveal contact-note">
+        <div class="eyebrow">Обращение</div>
+        <h2>Получить консультацию</h2>
+        <p class="lead">Заполните информацию. Сайт сформирует документ Word с обращением в юридическое бюро Чигирина.</p>
+        <form class="application-form" id="consultationForm">
+          <input class="input" name="name" placeholder="Ваше имя" required>
+          <input class="input" name="phone" placeholder="Телефон или способ связи" required>
+          <textarea name="message" placeholder="Опишите вопрос"></textarea>
+          <button class="button primary" type="submit">Создать обращение Word</button>
+          <div class="form-result" id="formResult"></div>
+          <div class="download-note">После скачивания документа его можно отправить на электронную почту юридического бюро.</div>
         </form>
       </div>
     </div>
@@ -552,6 +557,7 @@ textarea{min-height:148px;resize:vertical}
   </div>
 </footer>
 
+<script src="assets/chigirin-docx.js"></script>
 <script>
 const button=document.querySelector('.menu');
 const nav=document.querySelector('#navigation');
@@ -586,6 +592,27 @@ if(consultationBtn){
  setConsultationLink();
  window.addEventListener('resize',setConsultationLink);
 }
+const consultationForm=document.getElementById('consultationForm');
+const formResult=document.getElementById('formResult');
+consultationForm?.addEventListener('submit', async (event)=>{
+ event.preventDefault();
+ const data=new FormData(consultationForm);
+ const blob=await NPProposalDocx.buildProposalDocx({
+   title:'Обращение на юридическую консультацию',
+   name:data.get('name'),
+   role:'Клиент юридического бюро Чигирина',
+   contact:data.get('phone'),
+   problem:data.get('message') || 'Не указано',
+   result:'Требуется рассмотрение обращения и обратная связь.'
+ });
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement('a');
+ a.href=url;
+ a.download='Обращение_юридическое_бюро_Чигирина.docx';
+ a.click();
+ URL.revokeObjectURL(url);
+ formResult.textContent='Документ Word создан и скачан. Его можно отправить на электронную почту.';
+});
 </script>
 </body>
 </html>

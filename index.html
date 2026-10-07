@@ -219,7 +219,7 @@ p{max-width:72ch}
 .services-grid,.reasons-grid,.practice-cards{display:grid;gap:22px}
 .services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
 .reasons-grid{grid-template-columns:repeat(4,1fr)}
-.practice-cards{grid-template-columns:1fr;align-items:stretch}
+.practice-cards{grid-template-columns:1fr;align-items:stretch;gap:18px}
 .card{
   padding:28px;border-radius:24px;background:linear-gradient(180deg, rgba(75,62,41,.74), rgba(43,30,21,.84));
   border:1px solid rgba(241,185,120,.14);box-shadow:0 12px 28px rgba(0,0,0,.18);position:relative;overflow:hidden
@@ -259,14 +259,15 @@ p{max-width:72ch}
 .reason h3{font-size:22px}
 .reason p{color:#eadccb;font-size:16px;line-height:1.76}
 
-.practice-card{min-height:auto;display:grid;grid-template-columns:minmax(220px,280px) 1fr;gap:26px;align-items:start;padding:28px 30px;overflow:visible}
-.practice-card .practice-head{display:flex;flex-direction:column;gap:14px}
+.practice-card{min-height:auto;display:grid;grid-template-columns:minmax(240px,300px) 1fr;gap:24px;align-items:start;padding:28px 30px;overflow:visible;background:linear-gradient(145deg, rgba(62,48,31,.82), rgba(26,20,15,.94))}
+.practice-card .practice-head{display:flex;flex-direction:column;gap:12px}
 .practice-card .label{display:inline-flex;align-items:center;align-self:flex-start;margin:0;padding:7px 14px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#f2d5aa;background:rgba(232,137,47,.10);border:1px solid rgba(241,185,120,.18)}
-.practice-card h3{font-size:32px;max-width:100%;margin:0}
-.practice-card .practice-body p{font-size:16px;color:#f1e2cf;line-height:1.72;margin:0 0 12px}
-.practice-card ul{padding-left:20px;margin:0;color:#eee0cd;line-height:1.72}
-.practice-card li{margin-bottom:8px}
-.practice-card li+li{margin-top:2px}
+.practice-card h3{font-size:34px;max-width:100%;margin:0}
+.practice-card .practice-body > p{font-size:16px;color:#f1e2cf;line-height:1.72;margin:0 0 14px}
+.practice-card .practice-body strong{color:#f5e6d3}
+.practice-card .practice-list{display:grid;gap:12px;margin-top:6px}
+.practice-card .practice-item{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(241,185,120,.08)}
+.practice-card .practice-item p{margin:0}
 .practice-card .practice-body{padding-left:2px}
 
 
@@ -332,7 +333,7 @@ textarea{min-height:148px;resize:vertical}
   .button{width:100%}
   .button-row{gap:12px}
   .services-grid,.reasons-grid{grid-template-columns:1fr}
-  .practice-card{min-height:auto;grid-template-columns:1fr;padding:24px}
+  .practice-card{min-height:auto;grid-template-columns:1fr;padding:22px}
   .practice-card h3{font-size:28px}
   .profile-banner{padding:24px}
   .profile-banner strong{font-size:34px}
@@ -387,8 +388,8 @@ textarea{min-height:148px;resize:vertical}
       <div class="hero-copy reveal is-visible">
         <div class="eyebrow">Санкт-Петербург · Юрист · Заместитель Главы МО «Морские ворота»</div>
         <h1>Кирилл Чигирин<br><span class="accent">Юрист и заместитель Главы муниципального образования «Морские ворота»</span></h1>
-        <p class="lead">Юридическая помощь гражданам и организациям. Практический опыт в правовой сфере и участие в муниципальной деятельности Санкт-Петербурга.</p>
-        <p class="subline">Консультации, правовой анализ, подготовка документов, сопровождение правовых вопросов и внимательная работа с обращениями. Спокойная подача, точность формулировок и уважение к интересам клиента.</p>
+        <p class="lead">Юридическая помощь гражданам и организациям. Практический опыт в правовой сфере, точность формулировок и внимательная работа с документами.</p>
+        <p class="subline">Консультации, правовой анализ, подготовка документов и сопровождение правовых вопросов. Спокойная подача, ясная логика действий и уважение к интересам клиента.</p>
         <div class="button-row">
           <a class="button primary" href="tel:+79219746517">Получить консультацию</a>
           <a class="button secondary" href="#services">Смотреть услуги</a>
@@ -396,7 +397,7 @@ textarea{min-height:148px;resize:vertical}
         <span class="note">Формат работы, стоимость и ближайшее время консультации обсуждаются напрямую.</span>
         <div class="trust-strip">
           <div class="trust-pill glass-card"><strong>Юрист</strong><span>Консультации, правовой анализ и сопровождение юридических вопросов.</span></div>
-          <div class="trust-pill glass-card"><strong>Муниципальная деятельность</strong><span>Заместитель Главы муниципального образования «Морские ворота», участие в решении вопросов местного значения.</span></div>
+          <div class="trust-pill glass-card"><strong>Должность</strong><span>Заместитель Главы муниципального образования «Морские ворота».</span></div>
           <div class="trust-pill glass-card"><strong>Подход</strong><span>Внимание к интересам человека и конкретной ситуации.</span></div>
         </div>
       </div>
@@ -412,7 +413,7 @@ textarea{min-height:148px;resize:vertical}
     </div>
     <div class="wrap hero-bottom reveal">
       <div class="metric glass-card"><strong>Юридическая помощь</strong><span>Консультации, анализ ситуации и выработка понятного следующего шага.</span></div>
-      <div class="metric glass-card"><strong>Муниципальная деятельность</strong><span>Работа с вопросами местного значения и внимательное отношение к обращениям.</span></div>
+      <div class="metric glass-card"><strong>Официальный статус</strong><span>Заместитель Главы муниципального образования «Морские ворота».</span></div>
       <div class="metric glass-card"><strong>Точная подача</strong><span>Чёткие формулировки, уважение к срокам и аккуратная работа с документами.</span></div>
     </div>
   </section>
@@ -466,75 +467,34 @@ textarea{min-height:148px;resize:vertical}
     </div>
   </section>
 
-    <section class="section" id="practice">
+      <section class="section" id="practice">
     <div class="wrap practice-grid">
       <div class="reveal">
         <div class="eyebrow">Практика</div>
-        <h2>Направления работы, представленные в понятном и предметном формате.</h2>
-        <p class="lead">Вместо абстрактных ситуаций блок показывает реальные направления, в которых может быть полезна юридическая помощь и практический разбор вопроса.</p>
+        <h2>Практика в лаконичном и понятном формате.</h2>
+        <p class="lead">Раздел показывает обезличенный пример работы без публикации персональных данных. Это позволяет аккуратно показать направление практики и итог рассмотрения дела.</p>
       </div>
       <div class="practice-cards reveal">
         <article class="card practice-card">
           <div class="practice-head">
-            <span class="label">Направление 01</span>
-            <h3>Судебное сопровождение</h3>
+            <span class="label">Практика 01</span>
+            <h3>Возмещение ущерба от ДТП</h3>
           </div>
           <div class="practice-body">
-            <p>Подготовка правовой позиции и системная работа с материалами по спору.</p>
-            <ul>
-              <li>Анализ документов и обстоятельств дела.</li>
-              <li>Подготовка процессуальной позиции и правовых аргументов.</li>
-              <li>Сопровождение клиента на ключевых этапах рассмотрения вопроса.</li>
-            </ul>
+            <p><strong>Категория:</strong> иск о возмещении ущерба, причинённого в результате дорожно-транспортного происшествия.</p>
+            <div class="practice-list">
+              <div class="practice-item"><p><strong>Суть вопроса:</strong> рассмотрение гражданского спора о взыскании ущерба после ДТП.</p></div>
+              <div class="practice-item"><p><strong>Ход рассмотрения:</strong> иск был принят к производству, проведены судебные заседания, в процессе рассмотрения объявлялся перерыв и переносилось заседание.</p></div>
+              <div class="practice-item"><p><strong>Результат:</strong> иск удовлетворён судом.</p></div>
+            </div>
           </div>
         </article>
-        <article class="card practice-card">
-          <div class="practice-head">
-            <span class="label">Направление 02</span>
-            <h3>Договорная работа</h3>
-          </div>
-          <div class="practice-body">
-            <p>Проверка, подготовка и корректировка документов, от которых зависит правовая безопасность.</p>
-            <ul>
-              <li>Подготовка договоров, претензий и сопроводительных документов.</li>
-              <li>Выявление рисков в формулировках и условиях.</li>
-              <li>Предложение более устойчивого варианта правового оформления.</li>
-            </ul>
-          </div>
-        </article>
-        <article class="card practice-card">
-          <div class="practice-head">
-            <span class="label">Направление 03</span>
-            <h3>Обращения граждан</h3>
-          </div>
-          <div class="practice-body">
-            <p>Работа с обращениями, в которых важны точность, сроки и понятный ответ.</p>
-            <ul>
-              <li>Подготовка правовой позиции по существу вопроса.</li>
-              <li>Систематизация фактов, документов и ключевых обстоятельств.</li>
-              <li>Помощь в выборе дальнейшего способа защиты интересов.</li>
-            </ul>
-          </div>
-        </article>
-        <article class="card practice-card">
-          <div class="practice-head">
-            <span class="label">Направление 04</span>
-            <h3>Муниципальные вопросы</h3>
-          </div>
-          <div class="practice-body">
-            <p>Участие в решении вопросов местного значения и взаимодействии с жителями.</p>
-            <ul>
-              <li>Работа с обращениями и вопросами местного сообщества.</li>
-              <li>Внимание к процедурам, срокам и корректности формулировок.</li>
-              <li>Понимание практического контекста муниципальной деятельности.</li>
-            </ul>
-          </div>
-        </article>
+        
       </div>
     </div>
   </section>
 
-  <section class="section profile-summary" id="summary">
+<section class="section profile-summary" id="summary">
     <div class="wrap">
       <div class="profile-banner reveal">
         <div>

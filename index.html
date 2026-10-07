@@ -294,6 +294,15 @@ p{max-width:72ch}
 }
 .input::placeholder,textarea::placeholder{color:#d0bda4;opacity:1}
 textarea{min-height:148px;resize:vertical}
+
+/* Smart consultation button */
+@media (min-width:761px){
+ .consultation-btn{cursor:pointer}
+}
+@media (max-width:760px){
+ .consultation-btn{display:inline-flex}
+}
+
 .footer{padding:28px 0 36px;border-top:1px solid rgba(241,185,120,.10);margin-top:36px}
 .footer-layout{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;color:#cbb89c;font-size:14px}
 .footer strong{letter-spacing:.14em;color:#f0e1cb}
@@ -391,7 +400,7 @@ textarea{min-height:148px;resize:vertical}
         <p class="lead">Юридическая помощь гражданам и организациям. Практический опыт в правовой сфере, точность формулировок и внимательная работа с документами.</p>
         <p class="subline">Консультации, правовой анализ, подготовка документов и сопровождение правовых вопросов. Спокойная подача, ясная логика действий и уважение к интересам клиента.</p>
         <div class="button-row">
-          <a class="button primary" href="tel:+79219746517">Получить консультацию</a>
+          <a class="button primary" href="#contact" class="consultation-btn">Получить консультацию</a>
           <a class="button secondary" href="#services">Смотреть услуги</a>
         </div>
         <span class="note">Формат работы, стоимость и ближайшее время консультации обсуждаются напрямую.</span>
@@ -518,7 +527,7 @@ textarea{min-height:148px;resize:vertical}
         <div class="contact-list">
           <div class="contact-item"><strong>Телефон</strong><a href="tel:+79219746517">+7 (921) 974-65-17</a></div>
           <div class="contact-item"><strong>E-mail</strong><a href="mailto:c.chigirin@yandex.ru">c.chigirin@yandex.ru</a></div>
-          <div class="contact-item"><strong>ВКонтакте</strong><a href="https://vk.ru/chigirinconsalting" target="_blank" rel="noopener noreferrer">vk.ru/chigirinconsalting</a><br><a href="https://vk.ru/chigirindelaetdelo" target="_blank" rel="noopener noreferrer">vk.ru/chigirindelaetdelo</a></div>
+
         </div>
       </div>
       <div class="contact-panel reveal">
@@ -564,6 +573,19 @@ const observer=new IntersectionObserver((entries)=>{
   });
 },{threshold:.16});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const consultationBtn=document.querySelector('.consultation-btn');
+if(consultationBtn){
+ const setConsultationLink=()=>{
+   if(window.innerWidth<=760){
+     consultationBtn.href='tel:+79219746517';
+   } else {
+     consultationBtn.href='#contact';
+   }
+ };
+ setConsultationLink();
+ window.addEventListener('resize',setConsultationLink);
+}
 </script>
 </body>
 </html>

@@ -2,6 +2,8 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Кирилл Чигирин — юрист и заместитель Главы МО «Морские ворота» | Юридическая защита и консультация</title>
 <meta name="description" content="Кирилл Чигирин — юрист и заместитель Главы МО «Морские ворота». Юридические консультации, правовой анализ, подготовка документов и сопровождение правовых вопросов в Санкт-Петербурге.">
@@ -379,7 +381,6 @@ textarea{min-height:148px;resize:vertical}
   ]
 }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
@@ -422,7 +423,7 @@ textarea{min-height:148px;resize:vertical}
       </div>
       <div class="hero-card reveal float">
         <figure class="portrait">
-          <img src="assets/kirill-chigirin.jpg" width="853" height="1280" alt="Кирилл Чигирин, юрист" fetchpriority="high">
+          <img src="assets/kirill-chigirin.jpg" loading="lazy" decoding="async" width="853" height="1280" alt="Кирилл Чигирин, юрист" fetchpriority="high">
           <figcaption class="caption">
             <div><div class="name">Кирилл Чигирин</div><small>Юрист</small></div>
             <div class="glass-card" style="padding:10px 14px;border-radius:16px;font-size:12px;color:#f2d6ae">Юрист<br>Заместитель Главы МО «Морские ворота»</div>
@@ -532,9 +533,9 @@ textarea{min-height:148px;resize:vertical}
 <section class="section" id="consultation">
 <div class="wrap">
 <div class="eyebrow">Обращение</div>
-<h2>Получить юридическую консультацию</h2>
-<p class="lead">Заполните форму. После отправки будет сформировано обращение в формате Word.</p>
-<form class="consult-form reveal" id="consultForm">
+<h2></h2>
+<p class="lead">Заполните форму. </p>
+<form class="consult-form reveal" >
 <div class="consult-form-grid">
 <div><label>ФИО</label><input id="clientName" required></div>
 <div><label>Контакт для связи</label><input id="clientContact" required></div>
@@ -548,7 +549,7 @@ textarea{min-height:148px;resize:vertical}
 </select></div>
 <div class="full"><label>Описание ситуации</label><textarea id="clientText" required></textarea></div>
 <div class="full"><label>Дополнительная информация</label><textarea id="clientExtra"></textarea></div>
-<div class="full"><button class="button primary" type="submit">Сформировать обращение</button></div>
+<div class="full"><button class="button primary" type="submit">Получить консультацию</button></div>
 </div>
 </form>
 </div>
@@ -583,7 +584,6 @@ textarea{min-height:148px;resize:vertical}
 </footer>
 
 <script>
-const button=document.querySelector('.menu');
 const nav=document.querySelector('#navigation');
 function closeMenu(){button.setAttribute('aria-expanded','false');nav.classList.remove('open')}
 button?.addEventListener('click',()=>{
@@ -592,7 +592,6 @@ button?.addEventListener('click',()=>{
   nav.classList.toggle('open',open);
 });
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&button?.getAttribute('aria-expanded')==='true'){closeMenu();button.focus()}});
 
 const observer=new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
@@ -602,9 +601,7 @@ const observer=new IntersectionObserver((entries)=>{
     }
   });
 },{threshold:.16});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-const consultationBtn=document.querySelector('.consultation-btn');
 if(consultationBtn){
  const setConsultationLink=()=>{
    if(window.innerWidth<=760){
@@ -617,9 +614,7 @@ if(consultationBtn){
  window.addEventListener('resize',setConsultationLink);
 }
 
-document.getElementById('consultForm')?.addEventListener('submit', async function(e){
  e.preventDefault();
- const {Document,Packer,Paragraph,TextRun}=docx;
  const date=new Date().toLocaleDateString('ru-RU');
  const text=[
  'ЮРИДИЧЕСКОЕ БЮРО ЧИГИРИНА',
@@ -639,9 +634,7 @@ document.getElementById('consultForm')?.addEventListener('submit', async functio
  'ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ',
  clientExtra.value
  ];
- const doc=new Document({sections:[{children:text.map(t=>new Paragraph({children:[new TextRun({text:t})]}))}]});
  const blob=await Packer.toBlob(doc);
- saveAs(blob,'Обращение_Юридическое_бюро_Чигирина.docx');
 });
 </script>
 </body>

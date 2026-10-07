@@ -216,9 +216,9 @@ p{max-width:72ch}
 
 .about-grid,.practice-grid,.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
 .services-grid,.reasons-grid,.practice-cards{display:grid;gap:22px}
-.services-grid{grid-template-columns:repeat(3,1fr)}
+.services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
 .reasons-grid{grid-template-columns:repeat(4,1fr)}
-.practice-cards{grid-template-columns:repeat(3,1fr)}
+.practice-cards{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
 .card{
   padding:28px;border-radius:24px;background:linear-gradient(180deg, rgba(75,62,41,.74), rgba(43,30,21,.84));
   border:1px solid rgba(241,185,120,.14);box-shadow:0 12px 28px rgba(0,0,0,.18);position:relative;overflow:hidden
@@ -232,6 +232,20 @@ p{max-width:72ch}
   display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:14px;
   border:1px solid rgba(241,185,120,.22);background:rgba(255,255,255,.03);color:var(--gold-soft);font-weight:700;margin-bottom:22px
 }
+
+.services-grid .card{
+  min-height:250px;
+  padding:34px;
+  background:linear-gradient(145deg, rgba(75,62,41,.82), rgba(32,24,20,.92));
+}
+.services-grid .card:hover{
+  border-color:rgba(232,137,47,.42);
+}
+.services-grid .card-number{
+  width:52px;height:52px;border-radius:18px;font-size:15px;margin-bottom:28px;
+  background:linear-gradient(135deg, rgba(159,46,16,.35), rgba(232,137,47,.18));
+}
+.services-grid h3{max-width:360px}
 .feature-list{display:grid;gap:14px;margin-top:28px}
 .feature-item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:18px;border:1px solid rgba(241,185,120,.10);background:rgba(255,255,255,.03)}
 .feature-item span{flex-shrink:0;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(232,137,47,.12);border:1px solid rgba(241,185,120,.18);color:var(--gold-soft);font-weight:700}
@@ -245,7 +259,9 @@ p{max-width:72ch}
 .reason p{color:#eadccb;font-size:16px;line-height:1.76}
 
 .practice-card .label{display:inline-block;margin-bottom:14px;padding:6px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#f2d5aa;background:rgba(232,137,47,.10);border:1px solid rgba(241,185,120,.18)}
-.practice-card ul{padding-left:20px;margin:12px 0 0;color:#eee0cd;line-height:1.76}
+.practice-card{min-height:420px;display:flex;flex-direction:column}
+.practice-card ul{padding-left:20px;margin:12px 0 0;color:#eee0cd;line-height:1.7}
+.practice-card li{margin-bottom:10px}
 .practice-card li+li{margin-top:8px}
 
 .contact{
@@ -278,7 +294,7 @@ textarea{min-height:148px;resize:vertical}
 @media (max-width:1080px){
   .hero-layout,.about-grid,.practice-grid,.contact-layout{grid-template-columns:1fr;gap:34px}
   .hero-card{justify-self:center;max-width:520px}
-  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
   .reasons-grid{grid-template-columns:repeat(2,1fr)}
   .practice-cards{grid-template-columns:1fr}
   .hero-bottom{grid-template-columns:1fr}
@@ -300,6 +316,7 @@ textarea{min-height:148px;resize:vertical}
   .button{width:100%}
   .button-row{gap:12px}
   .services-grid,.reasons-grid{grid-template-columns:1fr}
+  .practice-card{min-height:auto}
   .caption{left:18px;right:18px;bottom:16px}
   .caption .name{font-size:28px}
   .contact-panel{padding:24px}
@@ -404,12 +421,12 @@ textarea{min-height:148px;resize:vertical}
         <p class="lead">На сайте можно кратко показать основные направления работы, чтобы посетителю было проще понять, с чем можно обратиться уже сейчас.</p>
       </div>
       <div class="services-grid reveal">
-        <article class="card"><span class="card-number">01</span><h3>Юридическая консультация</h3><p>Первичный анализ ситуации, определение ключевых рисков, разбор документов и формулировка дальнейших шагов.</p></article>
-        <article class="card"><span class="card-number">02</span><h3>Подготовка документов</h3><p>Составление заявлений, претензий, обращений, договоров и других материалов, от которых зависит сила вашей позиции.</p></article>
-        <article class="card"><span class="card-number">03</span><h3>Сопровождение споров</h3><p>Поддержка на разных этапах конфликта: от переговоров и претензионной работы до полноценного правового сопровождения.</p></article>
-        <article class="card"><span class="card-number">04</span><h3>Представительство</h3><p>Защита интересов клиента при переговорах, взаимодействии с другой стороной и в иных правовых процедурах.</p></article>
-        <article class="card"><span class="card-number">05</span><h3>Правовой анализ</h3><p>Глубокий разбор ситуации, фактов, документов и перспектив для того, чтобы опираться на реальную картину, а не на эмоции.</p></article>
-        <article class="card"><span class="card-number">06</span><h3>Поддержка бизнеса</h3><p>Помощь в вопросах деловой переписки, договорной работы, снижении рисков и защите интересов компании.</p></article>
+        <article class="card"><span class="card-number">01</span><h3>Юридическая консультация</h3><p>Анализ правовой ситуации, оценка рисков и определение возможных вариантов решения.</p></article>
+        <article class="card"><span class="card-number">02</span><h3>Подготовка документов</h3><p>Подготовка заявлений, договоров, претензий и других юридически значимых документов.</p></article>
+        <article class="card"><span class="card-number">03</span><h3>Сопровождение споров</h3><p>Сопровождение споров, подготовка позиции и защита интересов клиента на различных этапах.</p></article>
+        <article class="card"><span class="card-number">04</span><h3>Представительство</h3><p>Представление интересов клиента при взаимодействии с организациями и государственными органами.</p></article>
+        <article class="card"><span class="card-number">05</span><h3>Правовой анализ</h3><p>Изучение обстоятельств, документов и перспектив для выбора обоснованной стратегии действий.</p></article>
+        <article class="card"><span class="card-number">06</span><h3>Поддержка бизнеса</h3><p>Юридическая поддержка бизнеса, договорная работа и снижение правовых рисков.</p></article>
       </div>
     </div>
   </section>

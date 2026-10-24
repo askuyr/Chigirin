@@ -5,19 +5,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Кирилл Чигирин — юрист и заместитель Главы МО «Морские ворота» | Юридическая защита и консультация</title>
-<meta name="description" content="Кирилл Чигирин — юрист и заместитель Главы МО «Морские ворота». Юридические консультации, правовой анализ, подготовка документов и сопровождение правовых вопросов в Санкт-Петербурге.">
-<meta name="keywords" content="Кирилл Чигирин, юрист, юридическая консультация, юридические услуги, представительство в суде, помощь юриста, правовая защита">
+<title>Кирилл Чигирин — юрист в Санкт-Петербурге | Консультации и представительство</title>
+<meta name="description" content="Юрист Кирилл Чигирин: юридические консультации, подготовка документов, сопровождение споров и представительство в Санкт-Петербурге. Заместитель Главы МО «Морские ворота».">
+<meta name="keywords" content="Кирилл Чигирин, юрист, юридическая консультация, юридические услуги, представительство в суде, помощь юриста, правовая защита, Санкт-Петербург">
 <meta name="theme-color" content="#16130E">
 <meta name="robots" content="index,follow">
+<meta name="author" content="Кирилл Чигирин">
+<link rel="canonical" href="https://askuyr.github.io/Chigirin/">
+<link rel="preload" as="image" href="assets/kirill-chigirin.jpg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Кирилл Чигирин — юрист">
-<meta property="og:description" content="Юридические консультации, правовой анализ и сопровождение правовых вопросов в Санкт-Петербурге.">
+<meta property="og:site_name" content="Кирилл Чигирин — юрист">
+<meta property="og:title" content="Кирилл Чигирин — юрист в Санкт-Петербурге">
+<meta property="og:description" content="Юридические консультации, подготовка документов и представительство в Санкт-Петербурге.">
+<meta property="og:url" content="https://askuyr.github.io/Chigirin/">
 <meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://askuyr.github.io/Chigirin/assets/og-chigirin.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Кирилл Чигирин — юрист в Санкт-Петербурге">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<meta name="twitter:title" content="Кирилл Чигирин — юрист в Санкт-Петербурге">
+<meta name="twitter:description" content="Юридические консультации, подготовка документов и представительство в Санкт-Петербурге.">
+<meta name="twitter:image" content="https://askuyr.github.io/Chigirin/assets/og-chigirin.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%239F2E10'/%3E%3Cstop offset='1' stop-color='%23E8892F'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2316130E'/%3E%3Crect x='8' y='8' width='48' height='48' rx='10' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-size='28' fill='%23F1B978' font-family='Georgia'%3E%D0%A7%3C/text%3E%3C/svg%3E">
 <style>
 :root{
@@ -89,6 +101,8 @@ body::after{
   background:rgba(22,19,14,.84);
   border-bottom:1px solid rgba(241,185,120,.12);
 }
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;pointer-events:none}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--gold),var(--gold-soft));box-shadow:0 0 14px rgba(232,137,47,.55)}
 .nav{
   min-height:88px;
   display:flex;
@@ -109,28 +123,39 @@ body::after{
 .brand strong{display:block;font-size:16px;letter-spacing:.16em;white-space:nowrap}
 .brand small{display:block;font-size:11px;color:var(--muted);letter-spacing:.12em;white-space:nowrap}
 .links{display:flex;align-items:center;gap:26px;font-size:15px;font-weight:500;flex-wrap:wrap;justify-content:flex-end}
-.links a{color:#e9dccb;opacity:.88;transition:opacity .2s,color .2s}
+.links a{position:relative;color:#e9dccb;opacity:.88;transition:opacity .2s,color .2s}
 .links a:hover{color:var(--gold);opacity:1}
+.links a[aria-current="true"]{color:var(--gold-soft);opacity:1}
+.links a[aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;border-radius:2px;background:var(--gold)}
 .nav-cta{
   padding:11px 18px;border:1px solid rgba(241,185,120,.35);border-radius:999px;
   background:rgba(255,255,255,.03)
 }
+.nav-cta[aria-current="true"]::after{display:none}
 .menu{display:none;background:none;color:#fff;border:1px solid rgba(241,185,120,.25);border-radius:12px;padding:8px 12px}
 
 .section{position:relative;padding:108px 0}
+.section-alt{
+  background:linear-gradient(180deg, rgba(255,255,255,.022), rgba(255,255,255,0) 68%);
+  border-top:1px solid rgba(241,185,120,.07);
+  border-bottom:1px solid rgba(241,185,120,.07)
+}
 .eyebrow{
   display:flex;align-items:center;gap:14px;
   font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft)
 }
 .eyebrow::before{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+.section-head{max-width:780px;margin-bottom:36px}
+.about-copy p + p{margin-top:18px;font-size:16px}
 h1,h2,h3,p{margin-top:0}
-h1{font:700 clamp(48px,6vw,84px)/1.02 "Cormorant Garamond",Georgia,serif;letter-spacing:-.035em;margin:20px 0 22px}
-h1 .accent{display:block;color:var(--gold)}
-h2{font:700 clamp(36px,4.1vw,54px)/1.08 "Cormorant Garamond",Georgia,serif;letter-spacing:-.025em;margin:20px 0 22px}
-h3{font:600 28px/1.2 "Cormorant Garamond",Georgia,serif;margin:0 0 12px}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+h1{font:700 clamp(42px,5vw,68px)/1.06 "Cormorant Garamond",Georgia,serif;letter-spacing:-.02em;margin:20px 0 24px}
+h1 .accent{display:block;font-size:.72em;line-height:1.16;color:var(--gold);letter-spacing:-.01em;margin-top:6px}
+h2{font:700 clamp(34px,3.9vw,52px)/1.12 "Cormorant Garamond",Georgia,serif;letter-spacing:-.02em;margin:20px 0 22px}
+h3{font:600 28px/1.25 "Cormorant Garamond",Georgia,serif;margin:0 0 12px}
 p{margin-bottom:0}
 .lead{font-size:19px;line-height:1.82;color:#efe3d2;max-width:640px}
-.muted{color:var(--muted)}
 
 p{max-width:72ch}
 .contact-panel p,.reason p,.card p,.feature-item p,.practice-card ul{max-width:none}
@@ -170,14 +195,13 @@ p{max-width:72ch}
   padding:52px 0 44px;
 }
 .hero-copy{position:relative;z-index:1}
-.hero-copy .subline{font-size:18px;line-height:1.8;color:#f4e8d7;max-width:590px}
-.hero-copy .trust-strip{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
+.hero-copy .trust-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:34px}
 .trust-pill{
-  padding:12px 16px;border:1px solid rgba(241,185,120,.16);border-radius:16px;
-  background:rgba(255,255,255,.03);backdrop-filter:blur(10px);min-width:140px
+  padding:16px 16px 18px;border:1px solid rgba(241,185,120,.16);border-radius:16px;
+  background:rgba(255,255,255,.03);backdrop-filter:blur(10px)
 }
-.trust-pill strong{display:block;font:600 30px/1.05 "Cormorant Garamond",Georgia,serif;color:var(--gold-soft);margin-bottom:6px}
-.trust-pill span{display:block;font-size:13px;color:var(--muted);line-height:1.4}
+.trust-pill strong{display:block;font:600 24px/1.1 "Cormorant Garamond",Georgia,serif;color:var(--gold-soft);margin-bottom:8px}
+.trust-pill span{display:block;font-size:13px;color:var(--muted);line-height:1.5}
 .hero-card{
   position:relative;justify-self:end;max-width:470px;width:100%;border-radius:28px;
   padding:14px;background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
@@ -192,9 +216,9 @@ p{max-width:72ch}
   content:"";position:absolute;inset:16px;border:1px solid rgba(241,185,120,.18);border-radius:22px;pointer-events:none
 }
 .portrait{
-  position:relative;overflow:hidden;border-radius:22px;background:#3b2f21;z-index:1
+  position:relative;overflow:hidden;border-radius:22px;background:#3b2f21;z-index:1;margin:0
 }
-.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;filter:saturate(1.03) contrast(1.04)}
+.portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;filter:saturate(1.03) contrast(1.04)}
 .portrait::after{
   content:"";position:absolute;inset:0;background:
     linear-gradient(180deg, rgba(11,10,8,.08) 0, rgba(11,10,8,.12) 45%, rgba(11,10,8,.82) 100%),
@@ -205,18 +229,20 @@ p{max-width:72ch}
 }
 .caption .name{font:600 34px/1.05 "Cormorant Garamond",Georgia,serif}
 .caption small{display:block;color:#e6bf87;letter-spacing:.12em;font-size:12px;text-transform:uppercase;margin-top:5px}
+.caption .hero-badge{padding:10px 14px;border-radius:16px;font-size:12px;line-height:1.5;color:#f2d6ae}
 .hero-bottom{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:28px 0 10px;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:28px 0 10px;
 }
 .glass-card{
   background:rgba(255,255,255,.04);backdrop-filter:blur(12px);border:1px solid rgba(241,185,120,.14);
   border-radius:22px;box-shadow:0 10px 24px rgba(0,0,0,.16)
 }
-.metric{padding:24px}
-.metric strong{display:block;font:600 34px/1 "Cormorant Garamond",Georgia,serif;color:var(--gold-soft);margin-bottom:10px}
+.metric{padding:24px;min-width:0}
+.metric strong{display:block;font:600 34px/1 "Cormorant Garamond",Georgia,serif;color:var(--gold-soft);margin-bottom:10px;overflow-wrap:break-word}
 .metric span{color:var(--muted);font-size:14px;display:block}
 
-.about-grid,.contact-layout{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:start}
+.contact-layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:36px;align-items:stretch}
 .practice-grid{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr);gap:42px;align-items:start}
 .services-grid,.reasons-grid,.practice-cards{display:grid;gap:22px}
 .services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
@@ -224,12 +250,13 @@ p{max-width:72ch}
 .practice-cards{grid-template-columns:1fr;align-items:stretch;gap:18px}
 .card{
   padding:28px;border-radius:24px;background:linear-gradient(180deg, rgba(75,62,41,.74), rgba(43,30,21,.84));
-  border:1px solid rgba(241,185,120,.14);box-shadow:0 12px 28px rgba(0,0,0,.18);position:relative;overflow:hidden
+  border:1px solid rgba(241,185,120,.14);box-shadow:0 12px 28px rgba(0,0,0,.18);position:relative;overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease
 }
 .card::before{
   content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,.03), transparent 45%);pointer-events:none
 }
-.card:hover{transform:translateY(-4px);transition:transform .25s ease, box-shadow .25s ease;box-shadow:0 16px 34px rgba(0,0,0,.24)}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.24)}
 .card p{color:#efe2cf;font-size:16px;line-height:1.78}
 .card-number{
   display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:14px;
@@ -238,17 +265,26 @@ p{max-width:72ch}
 
 .services-grid .card{
   min-height:250px;
-  padding:34px;
+  padding:32px 30px;
   background:linear-gradient(145deg, rgba(75,62,41,.82), rgba(32,24,20,.92));
 }
 .services-grid .card:hover{
   border-color:rgba(232,137,47,.42);
 }
-.services-grid .card-number{
-  width:52px;height:52px;border-radius:18px;font-size:15px;margin-bottom:28px;
-  background:linear-gradient(135deg, rgba(159,46,16,.35), rgba(232,137,47,.18));
+.service-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px}
+.service-icon{
+  width:52px;height:52px;border-radius:17px;display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(135deg, rgba(159,46,16,.35), rgba(232,137,47,.16));
+  border:1px solid rgba(241,185,120,.22);color:var(--gold-soft);
+  transition:border-color .25s ease, color .25s ease, transform .25s ease
 }
-.services-grid h3{max-width:360px}
+.service-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.services-grid .card:hover .service-icon{border-color:rgba(232,137,47,.55);color:#ffd9a6;transform:translateY(-2px)}
+.service-top .card-number{
+  width:auto;height:auto;margin:0;padding:0;border:0;background:none;border-radius:0;
+  font:600 12px/1 "Inter",Arial,sans-serif;letter-spacing:.16em;color:#bfa17b
+}
+.services-grid h3{max-width:340px;margin-bottom:12px}
 .feature-list{display:grid;gap:14px;margin-top:28px}
 .feature-item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:18px;border:1px solid rgba(241,185,120,.10);background:rgba(255,255,255,.03)}
 .feature-item span{flex-shrink:0;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(232,137,47,.12);border:1px solid rgba(241,185,120,.18);color:var(--gold-soft);font-weight:700}
@@ -260,6 +296,44 @@ p{max-width:72ch}
 .reason strong{display:block;font:600 32px/1 "Cormorant Garamond",Georgia,serif;color:var(--gold);margin-bottom:12px}
 .reason h3{font-size:22px}
 .reason p{color:#eadccb;font-size:16px;line-height:1.76}
+
+.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.process-step{
+  position:relative;padding:26px 22px 28px;border-radius:22px;
+  border:1px solid rgba(241,185,120,.14);background:rgba(255,255,255,.03)
+}
+.process-step::before{
+  content:"";position:absolute;top:0;left:22px;right:22px;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);opacity:.55
+}
+.process-num{display:block;margin-bottom:22px;font:600 12px/1 "Inter",Arial,sans-serif;letter-spacing:.18em;color:var(--gold)}
+.process-step h3{font-size:24px;margin-bottom:10px}
+.process-step p{font-size:15px;line-height:1.72;color:#e5d6c2}
+
+.faq-layout{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:52px;align-items:start}
+.faq-list{border-top:1px solid rgba(241,185,120,.14)}
+.faq-item{border-bottom:1px solid rgba(241,185,120,.14)}
+.faq-item summary{
+  list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
+  padding:22px 2px;font:600 21px/1.35 "Cormorant Garamond",Georgia,serif;color:#f6e8d6;transition:color .2s
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--gold-soft)}
+.faq-sign{
+  position:relative;flex-shrink:0;width:26px;height:26px;margin-top:2px;border-radius:50%;
+  border:1px solid rgba(241,185,120,.28);transition:border-color .2s, background .2s
+}
+.faq-sign::before,.faq-sign::after{
+  content:"";position:absolute;top:50%;left:50%;width:10px;height:1px;background:var(--gold-soft);
+  transform:translate(-50%,-50%);transition:transform .25s ease,opacity .25s ease
+}
+.faq-sign::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-item[open] .faq-sign{background:rgba(232,137,47,.12);border-color:rgba(232,137,47,.55)}
+.faq-item[open] .faq-sign::after{transform:translate(-50%,-50%) rotate(0);opacity:0}
+.faq-answer{padding:0 2px 24px;font-size:15.5px;line-height:1.8;color:#e7d8c5;max-width:70ch}
+.faq-answer p + p{margin-top:10px}
+.faq-answer a{color:var(--gold-soft);text-decoration:underline;text-underline-offset:3px}
+.faq-note{margin-top:24px;font-size:14px;line-height:1.7;color:var(--muted)}
 
 .practice-card{min-height:auto;display:grid;grid-template-columns:minmax(240px,300px) 1fr;gap:24px;align-items:start;padding:28px 30px;overflow:visible;background:linear-gradient(145deg, rgba(62,48,31,.82), rgba(26,20,15,.94))}
 .practice-card .practice-head{display:flex;flex-direction:column;gap:12px}
@@ -273,47 +347,85 @@ p{max-width:72ch}
 .practice-card .practice-body{padding-left:2px}
 
 
-.profile-summary{padding-top:20px}
-.profile-banner{padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:22px;background:linear-gradient(145deg, rgba(75,62,41,.72), rgba(24,18,14,.94));border:1px solid rgba(241,185,120,.14);border-radius:28px;box-shadow:var(--shadow)}
-.profile-banner strong{display:block;font:700 40px/1.02 "Cormorant Garamond",Georgia,serif;color:#f3e8db;margin-bottom:6px}
-.profile-banner span{color:#e0cfba;font-size:16px;line-height:1.7}
-.profile-banner .profile-meta{display:grid;gap:10px;text-align:right;color:#f1b978;font-weight:600}
-.profile-banner .profile-meta small{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#d8b98a}
-
 .contact{
   padding-top:20px
 }
 .contact-panel{
   padding:34px;border-radius:28px;background:linear-gradient(180deg, rgba(32,24,20,.90), rgba(18,13,9,.95));
-  border:1px solid rgba(241,185,120,.14);box-shadow:var(--shadow)
+  border:1px solid rgba(241,185,120,.14);box-shadow:var(--shadow);
+  display:flex;flex-direction:column
 }
+.contact-panel h2{font-size:clamp(28px,3vw,38px);line-height:1.16;margin-bottom:16px}
+.contact-panel .lead{font-size:16.5px;line-height:1.75}
 .contact-list{display:grid;gap:14px;margin-top:28px}
 .contact-item{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(241,185,120,.10)}
-.contact-item strong{display:block;color:var(--gold-soft);margin-bottom:6px;font-weight:700}
-.form{display:grid;gap:14px}
-.input,textarea{
-  width:100%;border-radius:16px;border:1px solid rgba(241,185,120,.18);background:rgba(255,255,255,.045);color:var(--text);padding:16px 18px
+.contact-item strong{display:block;color:var(--gold-soft);margin-bottom:6px;font-weight:700;letter-spacing:.02em}
+.contact-panel a{color:var(--gold-soft);transition:color .2s}
+.contact-panel a:hover{color:var(--gold);text-decoration:underline}
+.contact-social-links{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.contact-social-links a{display:inline-flex;gap:8px;align-items:center}
+.contact-vcard{
+  display:inline-flex;align-items:center;gap:9px;align-self:flex-start;margin-top:22px;padding-bottom:4px;
+  font-size:14px;color:var(--gold-soft);border-bottom:1px solid rgba(241,185,120,.3)
 }
-.input::placeholder,textarea::placeholder{color:#d0bda4;opacity:1}
-textarea{min-height:148px;resize:vertical}
-
-/* Smart consultation button */
-@media (min-width:761px){
- .consultation-btn{cursor:pointer}
+.contact-vcard svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.contact-form{gap:15px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-field{display:flex;flex-direction:column;gap:7px}
+.form-field.full{grid-column:1/-1}
+.form-field label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#d6c0a4}
+.form-field input,.form-field textarea{
+  width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(241,185,120,.18);
+  background:rgba(255,255,255,.045);color:var(--text);font-size:16px;transition:border-color .2s,box-shadow .2s,background .2s
 }
-@media (max-width:760px){
- .consultation-btn{display:inline-flex}
+.form-field textarea{min-height:118px;resize:vertical}
+.form-field input::placeholder,.form-field textarea::placeholder{color:#c2ad92;opacity:1}
+.form-field input:focus,.form-field textarea:focus{
+  outline:none;border-color:rgba(232,137,47,.6);background:rgba(255,255,255,.065);
+  box-shadow:0 0 0 3px rgba(232,137,47,.14)
 }
+.form-consent{display:flex;gap:11px;align-items:flex-start;font-size:13px;line-height:1.6;color:#c9b79d}
+.form-consent input{
+  width:18px;height:18px;margin:2px 0 0;flex-shrink:0;accent-color:var(--accent);cursor:pointer
+}
+.form-consent a{color:var(--gold-soft);text-decoration:underline;text-underline-offset:2px}
+.form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+.form-actions .button{min-height:50px;padding:12px 22px;font-size:15px}
+.form-note{font-size:12.5px;line-height:1.65;color:#b9a58b}
+.form-status{min-height:21px;font-size:14px;line-height:1.5;color:var(--gold-soft)}
+.form-status.is-error{color:#ffb4a2}
 
-.footer{padding:28px 0 36px;border-top:1px solid rgba(241,185,120,.10);margin-top:36px}
-.footer-layout{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;color:#cbb89c;font-size:14px}
-.footer strong{letter-spacing:.14em;color:#f0e1cb}
+.footer{padding:48px 0 28px;border-top:1px solid rgba(241,185,120,.10);margin-top:36px;background:rgba(0,0,0,.12)}
+.footer-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:32px;align-items:start}
+.footer-brand{display:flex;align-items:center;gap:13px}
+.footer-brand .monogram{width:42px;height:46px;font-size:25px;border-radius:11px}
+.footer-brand strong{display:block;font-size:14px;letter-spacing:.14em;color:#f0e1cb}
+.footer-brand small{display:block;margin-top:4px;font-size:13px;color:var(--muted)}
+.footer-nav,.footer-contact{display:flex;flex-direction:column;gap:9px;font-size:14px}
+.footer-title{margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#b79b78}
+.footer-nav a,.footer-contact a{color:#d9c6ab;transition:color .2s}
+.footer-nav a:hover,.footer-contact a:hover{color:var(--gold)}
+.footer-bottom{
+  display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-top:36px;
+  padding-top:22px;border-top:1px solid rgba(241,185,120,.10);font-size:13px;line-height:1.65;color:#b9a58b
+}
+.footer-bottom > span{max-width:70ch}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:flex-end;flex-shrink:0}
+.footer-links a{color:#d9c6ab;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
 
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease, transform .75s ease}
-.reveal.is-visible{opacity:1;transform:none}
-.float{animation:float 7s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 rgba(232,137,47,.22)}50%{box-shadow:0 0 40px rgba(232,137,47,.16)}}
+.to-top{
+  position:fixed;right:22px;bottom:22px;z-index:55;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;
+  background:rgba(32,24,20,.92);border:1px solid rgba(241,185,120,.35);color:var(--gold-soft);
+  box-shadow:0 12px 32px rgba(0,0,0,.35);transition:transform .2s ease,border-color .2s ease,color .2s ease
+}
+.to-top:hover{transform:translateY(-3px);border-color:var(--gold);color:#ffd9a6}
+.to-top[hidden]{display:none}
+
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease, transform .75s ease}
+.js .reveal.is-visible{opacity:1;transform:none}
+@keyframes pulseGlow{0%,100%{box-shadow:var(--shadow)}50%{box-shadow:0 24px 78px rgba(232,137,47,.16)}}
 .hero-card{animation:pulseGlow 6s ease-in-out infinite}
 
 @media (max-width:1080px){
@@ -323,79 +435,137 @@ textarea{min-height:148px;resize:vertical}
   .reasons-grid{grid-template-columns:repeat(2,1fr)}
   .practice-cards{grid-template-columns:1fr}
   .practice-card{grid-template-columns:1fr;gap:18px}
-  .profile-banner{flex-direction:column;align-items:flex-start}
-  .profile-banner .profile-meta{text-align:left}
-  .hero-bottom{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .faq-layout{grid-template-columns:1fr;gap:30px}
+  .hero-bottom{grid-template-columns:minmax(0,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:26px}
+  .footer-brand{grid-column:1/-1}
+  .footer-bottom{flex-direction:column}
+  .footer-links{justify-content:flex-start}
 }
-@media (max-width:760px){
+@media (max-width:900px){
   .wrap{width:calc(100% - 34px)}
-  .nav{min-height:76px;flex-wrap:wrap;padding:14px 0}
-  .brand strong{font-size:14px}
-  .brand small{font-size:10px}
-  .menu{display:block}
-  .links{display:none;flex-direction:column;align-items:stretch;width:100%;gap:0;padding-bottom:4px}
+  .nav{min-height:70px;flex-wrap:wrap;padding:12px 0}
+  .brand{flex:1 1 auto;min-width:0;gap:8px}
+  .brand strong{font-size:12px;letter-spacing:.08em}
+  .brand small{display:none}
+  .monogram{width:42px;height:46px;font-size:26px}
+  .menu{display:block;flex-shrink:0;font-size:13px;padding:8px 10px}
+  .links{display:none;flex-direction:column;align-items:stretch;width:100%;gap:0;padding:6px 0 8px;border-top:1px solid rgba(241,185,120,.10);margin-top:12px}
   .links.open{display:flex}
-  .links a,.nav-cta{padding:12px 0;border-radius:0;background:none;border:none}
-  .section{padding:76px 0}
-  .hero{padding-top:10px}
-  .hero-layout{padding-top:34px;padding-bottom:34px;gap:28px}
-  h1{font-size:clamp(40px,13vw,58px)}
-  .lead,.hero-copy .subline{font-size:17px}
+  .links a,.nav-cta{padding:13px 2px;border-radius:0;background:none;border:none;border-bottom:1px solid rgba(241,185,120,.08)}
+  .links a[aria-current="true"]::after{display:none}
+  .links a[aria-current="true"]{background:rgba(232,137,47,.07);padding-left:10px}
+  .links a:last-child{border-bottom:none}
+  .section{padding:72px 0}
+  .hero{padding-top:6px}
+  .hero-layout{padding-top:34px;padding-bottom:34px;gap:30px}
+  .hero-copy .trust-strip{grid-template-columns:1fr;gap:12px}
+  h1{font-size:clamp(38px,11vw,52px)}
+  h1 .accent{font-size:.62em;line-height:1.2}
+  h2{font-size:clamp(30px,8.6vw,40px)}
+  .lead{font-size:17px}
   .button{width:100%}
   .button-row{gap:12px}
   .services-grid,.reasons-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
   .practice-card{min-height:auto;grid-template-columns:1fr;padding:22px}
   .practice-card h3{font-size:28px}
-  .profile-banner{padding:24px}
-  .profile-banner strong{font-size:34px}
   .caption{left:18px;right:18px;bottom:16px}
   .caption .name{font-size:28px}
+  .caption .glass-card{display:none}
   .contact-panel{padding:24px}
+  .contact-panel h2{font-size:27px}
+  .form-grid{grid-template-columns:1fr}
+  .form-actions .button{width:100%}
+  .footer{padding:36px 0 26px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{gap:16px}
+  .to-top{right:16px;bottom:16px;width:44px;height:44px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
+  .js .reveal{opacity:1;transform:none}
 }
 
-.consult-form{max-width:760px;margin:40px auto 0;padding:32px;border-radius:28px;background:rgba(75,62,41,.55);border:1px solid rgba(241,185,120,.18);box-shadow:0 20px 60px rgba(0,0,0,.25)}
-.consult-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.consult-form input,.consult-form textarea,.consult-form select{width:100%;padding:15px 16px;border-radius:14px;border:1px solid rgba(241,185,120,.2);background:rgba(255,255,255,.04);color:#f3e8db;font-size:16px}
-.consult-form textarea{min-height:130px;resize:vertical}
-.consult-form .full{grid-column:1/-1}
-.consult-form label{display:block;color:#e9d7bf;margin-bottom:8px;font-size:14px}
-@media(max-width:760px){.consult-form-grid{grid-template-columns:1fr}}
+
 </style>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"LegalService",
+  "@id":"https://askuyr.github.io/Chigirin/#lawyer",
   "name":"Кирилл Чигирин",
   "description":"Юридические консультации, анализ правовой ситуации, сопровождение споров и представительство.",
+  "url":"https://askuyr.github.io/Chigirin/",
+  "image":"https://askuyr.github.io/Chigirin/assets/kirill-chigirin.jpg",
   "telephone":"+7-921-974-65-17",
   "email":"c.chigirin@yandex.ru",
-  "url":"./",
+  "areaServed":{"@type":"City","name":"Санкт-Петербург"},
+  "address":{"@type":"PostalAddress","addressLocality":"Санкт-Петербург","addressCountry":"RU"},
   "sameAs":[
-    "https://vk.ru/chigirinconsalting",
-    "https://vk.ru/chigirindelaetdelo"
+    "https://vk.com/chigirinconsalting",
+    "https://vk.com/chigirindelaetdelo"
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"С чего начать обращение?",
+      "acceptedAnswer":{"@type":"Answer","text":"Позвоните по телефону +7 (921) 974-65-17 или напишите на c.chigirin@yandex.ru. Кратко опишите ситуацию и укажите удобный способ связи. Подготовка документов на первом этапе не требуется."}
+    },
+    {
+      "@type":"Question",
+      "name":"Какие документы понадобятся?",
+      "acceptedAnswer":{"@type":"Answer","text":"Это зависит от характера вопроса. Если уже есть договоры, переписка, уведомления или судебные документы, их стоит подготовить к консультации. Точный перечень определяется после первого разговора."}
+    },
+    {
+      "@type":"Question",
+      "name":"Сколько стоит консультация?",
+      "acceptedAnswer":{"@type":"Answer","text":"Стоимость и формат работы обсуждаются индивидуально: они зависят от сложности вопроса, объёма документов и необходимых действий."}
+    },
+    {
+      "@type":"Question",
+      "name":"Гарантируется ли результат дела?",
+      "acceptedAnswer":{"@type":"Answer","text":"Нет. Исход зависит от фактических обстоятельств, доказательств и решения суда. Задача юриста — объективно оценить перспективы, выбрать обоснованную стратегию и сделать всё в рамках закона для защиты интересов клиента."}
+    },
+    {
+      "@type":"Question",
+      "name":"Обращение останется конфиденциальным?",
+      "acceptedAnswer":{"@type":"Answer","text":"Да. Информация используется для связи и работы по обращению и не передаётся третьим лицам без законных оснований."}
+    },
+    {
+      "@type":"Question",
+      "name":"Сколько времени занимает рассмотрение?",
+      "acceptedAnswer":{"@type":"Answer","text":"Сроки зависят от категории спора, суда и необходимости экспертиз. После анализа обстоятельств обозначаются этапы работы и ориентировочные сроки."}
+    }
+  ]
+}
+</script>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 <a href="#main" class="skip">Перейти к содержанию</a>
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 <header class="top">
   <div class="wrap nav">
-    <a class="brand" href="#home" aria-label="Чигирин — главная">
+    <a class="brand" href="#home">
       <span class="monogram" aria-hidden="true">Ч</span>
       <span><strong>КИРИЛЛ ЧИГИРИН</strong><small>Юридическая защита интересов</small></span>
     </a>
-    <button class="menu" aria-expanded="false" aria-controls="navigation">Меню</button>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="navigation">Меню</button>
     <nav class="links" id="navigation" aria-label="Основная навигация">
-      <a href="#home">Главная</a>
       <a href="#about">Обо мне</a>
       <a href="#services">Услуги</a>
       <a href="#practice">Практика</a>
+      <a href="#faq">Вопросы</a>
       <a href="#contact" class="nav-cta">Контакты</a>
     </nav>
   </div>
@@ -405,93 +575,166 @@ textarea{min-height:148px;resize:vertical}
   <section class="hero section" id="home">
     <div class="wrap hero-layout">
       <div class="hero-copy reveal is-visible">
-        <div class="eyebrow">Санкт-Петербург · Юрист · Заместитель Главы МО «Морские ворота»</div>
-        <h1>Кирилл Чигирин<br><span class="accent">Юрист и заместитель Главы муниципального образования «Морские ворота»</span></h1>
-        <p class="lead">Юридическая помощь гражданам и бизнесу. Анализ ситуации, подготовка документов и представление интересов клиента при решении правовых вопросов.</p>
-        <p class="subline">Консультации, подготовка юридических документов, оценка рисков и разработка понятной правовой позиции. Спокойная подача, ясная логика действий и внимательное отношение к обстоятельствам каждого обращения.</p>
+        <div class="eyebrow">Санкт-Петербург · Юридическая практика</div>
+        <h1>Кирилл Чигирин<br><span class="accent">Юридическая защита и правовое сопровождение</span></h1>
+        <p class="lead">Юридическая помощь гражданам и бизнесу в Санкт-Петербурге: правовой анализ, подготовка документов и защита интересов.</p>
         <div class="button-row">
-          <a class="button primary" href="#contact" class="consultation-btn">Получить консультацию</a>
+          <a class="button primary" href="#contact">Получить консультацию</a>
           <a class="button secondary" href="#services">Смотреть услуги</a>
         </div>
-        <span class="note">Формат работы, стоимость и ближайшее время консультации обсуждаются напрямую.</span>
+        <span class="note">Формат работы, условия и время первичной консультации согласовываются индивидуально.</span>
         <div class="trust-strip">
-          <div class="trust-pill glass-card"><strong>Юрист</strong><span>Консультации, анализ ситуации и выработка правовой стратегии.</span></div>
-          <div class="trust-pill glass-card"><strong>Должность</strong><span>Заместитель Главы муниципального образования «Морские ворота».</span></div>
-          <div class="trust-pill glass-card"><strong>Подход</strong><span>Индивидуальный подход к каждому обращению и обстоятельствам дела.</span></div>
+          <div class="trust-pill glass-card"><strong>Правовая практика</strong><span>Консультации, анализ и представительство.</span></div>
+          <div class="trust-pill glass-card"><strong>Официальный статус</strong><span>Заместитель Главы МО «Морские ворота».</span></div>
+          <div class="trust-pill glass-card"><strong>Ответственный подход</strong><span>Внимание к деталям и нацеленность на результат.</span></div>
         </div>
       </div>
-      <div class="hero-card reveal float">
+      <div class="hero-card reveal">
         <figure class="portrait">
-          <img src="assets/kirill-chigirin.jpg" loading="lazy" decoding="async" width="853" height="1280" alt="Кирилл Чигирин, юрист" fetchpriority="high">
+          <img src="assets/kirill-chigirin.jpg" decoding="async" width="853" height="1279" alt="Кирилл Чигирин, юрист" fetchpriority="high">
           <figcaption class="caption">
             <div><div class="name">Кирилл Чигирин</div><small>Юрист</small></div>
-            <div class="glass-card" style="padding:10px 14px;border-radius:16px;font-size:12px;color:#f2d6ae">Юрист<br>Заместитель Главы МО «Морские ворота»</div>
+            <div class="hero-badge glass-card">Заместитель Главы<br>МО «Морские ворота»</div>
           </figcaption>
         </figure>
       </div>
     </div>
     <div class="wrap hero-bottom reveal">
-      <div class="metric glass-card"><strong>Юридическая помощь</strong><span>Разбор ситуации, оценка перспектив и определение дальнейшего порядка действий.</span></div>
+      <div class="metric glass-card"><strong>Юридическая помощь</strong><span>Тщательный разбор ситуации, оценка перспектив и выработка оптимального алгоритма действий.</span></div>
       <div class="metric glass-card"><strong>Официальный статус</strong><span>Заместитель Главы муниципального образования «Морские ворота».</span></div>
-      <div class="metric glass-card"><strong>Точная подача</strong><span>Чёткие формулировки, уважение к срокам и аккуратная работа с документами.</span></div>
+      <div class="metric glass-card"><strong>Профессиональная точность</strong><span>Выверенные правовые формулировки, соблюдение процессуальных сроков и аккуратность в документах.</span></div>
     </div>
   </section>
 
   <section class="section" id="about">
     <div class="wrap about-grid">
-      <div class="reveal">
+      <div class="reveal about-copy">
         <div class="eyebrow">Обо мне</div>
-        <h2>Спокойная подача.<br>Точная работа с сутью вопроса.</h2>
-        <p class="lead">Кирилл Чигирин — юрист, осуществляющий профессиональную деятельность в правовой сфере и принимающий участие в муниципальной деятельности в Санкт-Петербурге.</p>
-        <p class="lead" style="margin-top:18px;font-size:16px">Каждое обращение начинается с изучения обстоятельств и документов. Цель работы — определить возможные варианты решения и порядок дальнейших действий.</p>
+        <h2>Профессиональный подход.<br>Внимание к каждой детали дела.</h2>
+        <p class="lead">Кирилл Чигирин — практикующий юрист и заместитель Главы муниципального образования «Морские ворота» в Санкт-Петербурге.</p>
+        <p class="lead">Работа по каждому обращению выстраивается на основе всестороннего изучения фактических обстоятельств и представленных документов. Главная задача — объективно оценить правовые риски, определить реалистичные перспективы и предложить наиболее эффективный путь решения.</p>
       </div>
       <div class="feature-list reveal">
-        <div class="feature-item"><span>01</span><p><strong>Образование</strong><br>Магистр экономики. Аспирант юридического факультета Санкт-Петербургского университета технологий управления и экономики.</p></div>
-        <div class="feature-item"><span>02</span><p><strong>Профессиональный путь</strong><br>Опыт работы в юридической сфере и развитие собственной практики.</p></div>
-        <div class="feature-item"><span>03</span><p><strong>Муниципальная деятельность</strong><br>Заместитель Главы муниципального образования «Морские ворота», участие в решении вопросов местного значения.</p></div>
+        <div class="feature-item"><span>01</span><p><strong>Образование и квалификация</strong><br>Магистр экономики. Аспирант юридического факультета Санкт-Петербургского университета технологий управления и экономики.</p></div>
+        <div class="feature-item"><span>02</span><p><strong>Юридическая практика</strong><br>Практический опыт решения споров, договорной работы и защиты законных интересов доверителей.</p></div>
+        <div class="feature-item"><span>03</span><p><strong>Муниципальная деятельность</strong><br>Заместитель Главы МО «Морские ворота», участие в решении вопросов местного значения.</p></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="services">
     <div class="wrap">
-      <div class="reveal" style="max-width:760px;margin-bottom:32px">
+      <div class="reveal section-head">
         <div class="eyebrow">Услуги</div>
-        <h2>Помощь в вопросах, где важны точность, сроки и уверенная правовая позиция.</h2>
-        <p class="lead">Основные направления юридической помощи для граждан и организаций.</p>
+        <h2>Юридическая помощь, выстроенная вокруг вашей ситуации.</h2>
+        <p class="lead">Основные направления работы — от первичного анализа до представительства в суде.</p>
       </div>
       <div class="services-grid reveal">
-        <article class="card"><span class="card-number">01</span><h3>Юридическая консультация</h3><p>Разбор ситуации, оценка перспектив и рекомендации по дальнейшим действиям.</p></article>
-        <article class="card"><span class="card-number">02</span><h3>Подготовка документов</h3><p>Подготовка заявлений, договоров, претензий и других юридически значимых документов.</p></article>
-        <article class="card"><span class="card-number">03</span><h3>Сопровождение споров</h3><p>Подготовка правовой позиции, документов и сопровождение спора на досудебном и судебном этапах.</p></article>
-        <article class="card"><span class="card-number">04</span><h3>Представительство</h3><p>Представление интересов клиента при взаимодействии с организациями и государственными органами.</p></article>
-        <article class="card"><span class="card-number">05</span><h3>Правовой анализ</h3><p>Изучение обстоятельств, документов и перспектив для выбора обоснованной стратегии действий.</p></article>
-        <article class="card"><span class="card-number">06</span><h3>Поддержка бизнеса</h3><p>Юридическая поддержка бизнеса, договорная работа и снижение возможных правовых рисков.</p></article>
+        <article class="card service-card">
+          <div class="service-top">
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 11.5a8 8 0 0 1-8.1 7.9 8.8 8.8 0 0 1-3.3-.6L4.5 20l1.3-4a7.8 7.8 0 0 1-1.4-4.5 8 8 0 0 1 8.1-7.9 8 8 0 0 1 8 7.9Z"/><path d="M8.6 11.4h.01M12.4 11.4h.01M16.2 11.4h.01"/></svg></span>
+            <span class="card-number">01</span>
+          </div>
+          <h3>Юридическая консультация</h3>
+          <p>Разбор обстоятельств, оценка судебных перспектив и конкретные рекомендации по дальнейшим шагам.</p>
+        </article>
+        <article class="card service-card">
+          <div class="service-top">
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+            <span class="card-number">02</span>
+          </div>
+          <h3>Подготовка документов</h3>
+          <p>Заявления, договоры, претензии, жалобы и другие юридически значимые документы под конкретную ситуацию.</p>
+        </article>
+        <article class="card service-card">
+          <div class="service-top">
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M4 8h16"/><path d="M4 8l-2.5 5.5a3.5 3.5 0 0 0 5 0ZM20 8l-2.5 5.5a3.5 3.5 0 0 0 5 0Z"/></svg></span>
+            <span class="card-number">03</span>
+          </div>
+          <h3>Сопровождение споров</h3>
+          <p>Формирование правовой позиции и сопровождение дела на досудебном и судебном этапах.</p>
+        </article>
+        <article class="card service-card">
+          <div class="service-top">
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <span class="card-number">04</span>
+          </div>
+          <h3>Представительство</h3>
+          <p>Защита интересов клиента в судах, государственных органах и при взаимодействии с организациями.</p>
+        </article>
+        <article class="card service-card">
+          <div class="service-top">
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></span>
+            <span class="card-number">05</span>
+          </div>
+          <h3>Правовой анализ</h3>
+          <p>Изучение документов и обстоятельств для выбора обоснованной стратегии и оценки возможных рисков.</p>
+        </article>
+        <article class="card service-card">
+          <div class="service-top">
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span>
+            <span class="card-number">06</span>
+          </div>
+          <h3>Поддержка бизнеса</h3>
+          <p>Договорная работа, правовое сопровождение деятельности и снижение рисков для организаций.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="process">
+    <div class="wrap">
+      <div class="reveal section-head">
+        <div class="eyebrow">Порядок работы</div>
+        <h2>Четыре шага от вопроса до решения.</h2>
+        <p class="lead">Последовательный процесс без лишней бюрократии: вы понимаете, на каком этапе находится дело и что происходит дальше.</p>
+      </div>
+      <div class="process-grid reveal">
+        <article class="process-step">
+          <span class="process-num">01</span>
+          <h3>Обращение</h3>
+          <p>Вы звоните или пишете, коротко описываете ситуацию и удобный способ связи.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-num">02</span>
+          <h3>Анализ</h3>
+          <p>Уточняем детали и изучаем документы, чтобы увидеть полную картину спора.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-num">03</span>
+          <h3>Правовая позиция</h3>
+          <p>Определяем возможные варианты решения, риски и последовательность действий.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-num">04</span>
+          <h3>Сопровождение</h3>
+          <p>Готовим документы, представляем интересы и держим вас в курсе каждого этапа.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <section class="section" id="reasons">
     <div class="wrap">
-      <div class="reveal" style="max-width:780px;margin-bottom:32px">
+      <div class="reveal section-head">
         <div class="eyebrow">Почему выбирают меня</div>
-        <h2>Осознанный подход к делу, где важны анализ обстоятельств, качество подготовки и последовательность действий.</h2>
+        <h2>Внимательный анализ, понятная стратегия и последовательная работа.</h2>
       </div>
       <div class="reasons-grid reveal">
-        <article class="reason"><strong>01</strong><h3>Персональный подход</h3><p>Каждая ситуация анализируется отдельно: с учётом обстоятельств, документов и целей клиента.</p></article>
-        <article class="reason"><strong>02</strong><h3>Чёткая стратегия</h3><p>Важно не только знать право, но и понимать, какой шаг действительно полезен именно сейчас.</p></article>
-        <article class="reason"><strong>03</strong><h3>Конфиденциальность</h3><p>Деликатные вопросы требуют уважения к частной информации и аккуратной работы с документами.</p></article>
-        <article class="reason"><strong>04</strong><h3>Понятная коммуникация</h3><p>Клиент понимает, какие действия предпринимаются, почему выбрана определённая стратегия и какие перспективы существуют.</p></article>
+        <article class="reason"><strong>01</strong><h3>Персональный подход</h3><p>Каждая ситуация рассматривается отдельно — с учётом обстоятельств, документов и целей клиента.</p></article>
+        <article class="reason"><strong>02</strong><h3>Чёткая стратегия</h3><p>Вы получаете не общие советы, а понятный план действий с объяснением каждого шага.</p></article>
+        <article class="reason"><strong>03</strong><h3>Конфиденциальность</h3><p>Деликатные вопросы требуют бережного отношения к частной информации и аккуратной работы с документами.</p></article>
+        <article class="reason"><strong>04</strong><h3>Открытая коммуникация</h3><p>Вы понимаете, что происходит в деле, почему выбрана определённая стратегия и какие есть перспективы.</p></article>
       </div>
     </div>
   </section>
 
-      <section class="section" id="practice">
+  <section class="section" id="practice">
     <div class="wrap practice-grid">
       <div class="reveal">
         <div class="eyebrow">Практика</div>
         <h2>Примеры правовых ситуаций без раскрытия персональных данных клиентов.</h2>
-        <p class="lead">Раздел содержит обезличенные примеры правовых ситуаций без раскрытия персональных данных. Приведённые сведения отражают отдельные направления работы и не являются гарантией аналогичного результата в иных обстоятельствах.</p>
+        <p class="lead">Ниже приведены обезличенные примеры из практики. Они отражают отдельные направления работы и не являются гарантией аналогичного результата в других обстоятельствах.</p>
       </div>
       <div class="practice-cards reveal">
         <article class="card practice-card">
@@ -500,89 +743,327 @@ textarea{min-height:148px;resize:vertical}
             <h3>Возмещение ущерба от ДТП</h3>
           </div>
           <div class="practice-body">
-            <p><strong>Категория:</strong> иск о возмещении ущерба, причинённого в результате дорожно-транспортного происшествия.</p>
+            <p><strong>Категория:</strong> гражданский спор о возмещении материального ущерба, причинённого в результате дорожно-транспортного происшествия.</p>
             <div class="practice-list">
-              <div class="practice-item"><p><strong>Суть вопроса:</strong> рассмотрение гражданского спора о взыскании ущерба после ДТП.</p></div>
-              <div class="practice-item"><p><strong>Ход рассмотрения:</strong> иск был принят к производству, проведены судебные заседания, в процессе рассмотрения объявлялся перерыв и переносилось заседание.</p></div>
-              <div class="practice-item"><p><strong>Результат:</strong> иск удовлетворён судом.</p></div>
+              <div class="practice-item"><p><strong>Суть дела:</strong> взыскание ущерба, причинённого в результате дорожно-транспортного происшествия.</p></div>
+              <div class="practice-item"><p><strong>Ход рассмотрения:</strong> иск принят к производству, проведены судебные заседания; в ходе рассмотрения объявлялся перерыв и переносилось заседание.</p></div>
+              <div class="practice-item"><p><strong>Результат:</strong> исковые требования удовлетворены судом.</p></div>
             </div>
           </div>
         </article>
-        
       </div>
     </div>
   </section>
 
-<section class="section profile-summary" id="summary">
-    <div class="wrap">
-      <div class="profile-banner reveal">
-        <div>
-          <strong>Кирилл Чигирин</strong>
-          <span>Юрист. Заместитель Главы муниципального образования «Морские ворота». Санкт-Петербург.</span>
-        </div>
-        <div class="profile-meta">
-          <small>Профессиональный профиль</small>
-          <div>Юридическая помощь гражданам и организациям</div>
-        </div>
+  <section class="section section-alt" id="faq">
+    <div class="wrap faq-layout">
+      <div class="reveal">
+        <div class="eyebrow">Частые вопросы</div>
+        <h2>Коротко о том, что важно знать до обращения.</h2>
+        <p class="lead">Собрал ответы на вопросы, которые чаще всего возникают на первом этапе. Если нужного ответа нет — позвоните или напишите.</p>
+        <p class="faq-note">Материалы раздела носят информационный характер и не заменяют консультацию по конкретной ситуации.</p>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item" name="faq">
+          <summary><span>С чего начать обращение?</span><span class="faq-sign" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Позвоните по телефону <a href="tel:+79219746517">+7 (921) 974-65-17</a> или напишите на <a href="mailto:c.chigirin@yandex.ru">c.chigirin@yandex.ru</a>. Кратко опишите ситуацию и укажите удобный способ связи. Подготовка документов на первом этапе не требуется.</p></div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary><span>Какие документы понадобятся?</span><span class="faq-sign" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Это зависит от характера вопроса. Если уже есть договоры, переписка, уведомления или судебные документы, их стоит подготовить к консультации. Точный перечень определяется после первого разговора — лишние документы не нужны.</p></div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary><span>Сколько стоит консультация?</span><span class="faq-sign" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Стоимость и формат работы обсуждаются индивидуально: они зависят от сложности вопроса, объёма документов и необходимых действий. После уточнения задачи станут понятны условия и порядок дальнейшей работы.</p></div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary><span>Гарантируется ли результат дела?</span><span class="faq-sign" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Нет. Исход зависит от фактических обстоятельств, доказательств и решения суда. Задача юриста — объективно оценить перспективы, выбрать обоснованную стратегию и сделать всё в рамках закона для защиты интересов клиента.</p></div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary><span>Обращение останется конфиденциальным?</span><span class="faq-sign" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Да. Информация используется для связи и работы по обращению и не передаётся третьим лицам без законных оснований. Подробнее — в <a href="privacy.html">политике конфиденциальности</a>.</p></div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary><span>Сколько времени занимает рассмотрение?</span><span class="faq-sign" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Сроки зависят от категории спора, суда и необходимости экспертиз. После анализа обстоятельств обозначаются этапы работы и ориентировочные сроки — без обещаний, которые не зависят от юриста.</p></div>
+        </details>
       </div>
     </div>
   </section>
-
 
 <section class="section contact" id="contact">
     <div class="wrap contact-layout">
       <div class="contact-panel reveal">
         <div class="eyebrow">Контакты</div>
         <h2>Начните с вопроса — разберём, как двигаться дальше.</h2>
-        <p class="lead">Опишите ситуацию в нескольких предложениях — это поможет быстрее определить возможные варианты решения.</p>
+        <p class="lead">Опишите ситуацию в нескольких предложениях по телефону или в письме. Этого достаточно, чтобы определить возможные варианты решения и договориться о консультации.</p>
         <div class="contact-list">
           <div class="contact-item"><strong>Телефон</strong><a href="tel:+79219746517">+7 (921) 974-65-17</a></div>
           <div class="contact-item"><strong>E-mail</strong><a href="mailto:c.chigirin@yandex.ru">c.chigirin@yandex.ru</a></div>
-
+          <div class="contact-item"><strong>Город</strong><span>Санкт-Петербург</span></div>
+          <div class="contact-item">
+            <strong>Социальные сети</strong>
+            <div class="contact-social-links">
+              <a href="https://vk.com/chigirinconsalting" target="_blank" rel="noopener noreferrer">ВКонтакте — консалтинг</a>
+              <a href="https://vk.com/chigirindelaetdelo" target="_blank" rel="noopener noreferrer">ВКонтакте — практика</a>
+            </div>
+          </div>
         </div>
+        <a class="contact-vcard" href="assets/chigirin.vcf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+          Добавить контакты в телефон
+        </a>
       </div>
-      <div class="contact-panel reveal contact-note">
-        <div class="eyebrow">Связь</div>
-        <h2>Получить консультацию</h2>
-        <p class="lead">Для связи используйте телефон или электронную почту. Краткое описание ситуации поможет определить дальнейший порядок действий.</p>
-      </div>
+
+      <form class="contact-panel contact-form reveal" id="consult-form" novalidate>
+        <div class="eyebrow">Обращение</div>
+        <h2>Опишите ситуацию — подготовим ответ.</h2>
+        <p class="lead">Заполните поля, и сайт сформирует письмо в вашей почтовой программе. Данные не отправляются на сервер.</p>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="cf-name">Имя</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-contact">Телефон или e-mail</label>
+            <input id="cf-contact" name="contact" type="text" autocomplete="tel" placeholder="+7 ... или mail@example.ru" required>
+          </div>
+          <div class="form-field full">
+            <label for="cf-message">Кратко о ситуации</label>
+            <textarea id="cf-message" name="message" placeholder="Что произошло и какой результат для вас важен" required></textarea>
+          </div>
+        </div>
+        <label class="form-consent">
+          <input id="cf-consent" name="consent" type="checkbox" required>
+          <span>Согласен на обработку персональных данных в соответствии с <a href="consent.html">согласием</a> и <a href="privacy.html">политикой конфиденциальности</a>.</span>
+        </label>
+        <div class="form-actions">
+          <button class="button primary" type="submit">Сформировать письмо</button>
+          <button class="button secondary" type="button" id="copy-letter">Скопировать текст</button>
+        </div>
+        <p class="form-note">Кнопка откроет вашу почтовую программу с готовым письмом на c.chigirin@yandex.ru. Если она не настроена, скопируйте текст и отправьте его удобным способом.</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="wrap footer-layout">
-    <strong>КИРИЛЛ ЧИГИРИН</strong>
-    <span>Информация на сайте носит ознакомительный характер и не является публичной офертой или индивидуальной юридической консультацией без изучения обстоятельств конкретной ситуации.</span>
-    <a href="privacy.html">Политика конфиденциальности</a><a href="consent.html">Согласие на обработку ПДн</a><a href="#home">Наверх</a>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="monogram" aria-hidden="true">Ч</span>
+      <div>
+        <strong>КИРИЛЛ ЧИГИРИН</strong>
+        <small>Юрист · Санкт-Петербург</small>
+      </div>
+    </div>
+    <nav class="footer-nav" aria-label="Разделы сайта">
+      <span class="footer-title">Разделы</span>
+      <a href="#about">Обо мне</a>
+      <a href="#services">Услуги</a>
+      <a href="#practice">Практика</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="footer-contact">
+      <span class="footer-title">Связаться</span>
+      <a href="tel:+79219746517">+7 (921) 974-65-17</a>
+      <a href="mailto:c.chigirin@yandex.ru">c.chigirin@yandex.ru</a>
+      <a href="https://vk.com/chigirinconsalting" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Кирилл Чигирин. Информация на сайте носит ознакомительный характер и не является публичной офертой или индивидуальной юридической консультацией без изучения обстоятельств конкретной ситуации.</span>
+    <nav class="footer-links" aria-label="Правовая информация">
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="consent.html">Согласие на обработку ПДн</a>
+    </nav>
   </div>
 </footer>
 
-<script>
-const nav=document.querySelector('#navigation');
-const button=document.querySelector('.menu');
-function closeMenu(){
-  if(button) button.setAttribute('aria-expanded','false');
-  if(nav) nav.classList.remove('open');
-}
-if(button){
- button.addEventListener('click',()=>{
-  const open=button.getAttribute('aria-expanded')!=='true';
-  button.setAttribute('aria-expanded',String(open));
-  nav.classList.toggle('open',open);
- });
-}
-nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+<button class="to-top" id="to-top" type="button" aria-label="Наверх" hidden>
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
 
-const observer=new IntersectionObserver((entries)=>{
- entries.forEach(entry=>{
-  if(entry.isIntersecting){
-   entry.target.classList.add('is-visible');
-   observer.unobserve(entry.target);
+<script>
+(() => {
+  const nav = document.querySelector('#navigation');
+  const menuButton = document.querySelector('.menu');
+
+  const closeMenu = () => {
+    if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+    if (nav) nav.classList.remove('open');
+  };
+
+  if (menuButton && nav) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') !== 'true';
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      nav.classList.toggle('open', isOpen);
+    });
+
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeMenu();
+    });
   }
- });
-},{threshold:.16});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+  const revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.16 });
+    revealItems.forEach((el) => observer.observe(el));
+  } else {
+    revealItems.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  const navLinks = Array.from(document.querySelectorAll('#navigation a[href^="#"]'));
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if (sections.length && 'IntersectionObserver' in window) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.setAttribute('aria-current', 'true');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach((section) => spy.observe(section));
+  }
+
+  const progressBar = document.querySelector('#progress-bar');
+  const toTop = document.querySelector('#to-top');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const updateScrollUI = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    if (progressBar) {
+      progressBar.style.width = (scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0) + '%';
+    }
+    if (toTop) toTop.hidden = window.scrollY < 600;
+  };
+
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+      updateScrollUI();
+      scrollTicking = false;
+    });
+  }, { passive: true });
+  window.addEventListener('resize', updateScrollUI);
+  updateScrollUI();
+
+  if (toTop) {
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    });
+  }
+
+  const form = document.querySelector('#consult-form');
+  const status = document.querySelector('#form-status');
+  const copyButton = document.querySelector('#copy-letter');
+  const email = 'c.chigirin@yandex.ru';
+
+  const setStatus = (message, isError = false) => {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.toggle('is-error', isError);
+  };
+
+  const buildLetter = () => {
+    if (!form) return { subject: 'Обращение с сайта', body: '', mailto: `mailto:${email}` };
+    const name = form.querySelector('#cf-name').value.trim();
+    const contact = form.querySelector('#cf-contact').value.trim();
+    const message = form.querySelector('#cf-message').value.trim();
+    const subject = 'Обращение с сайта' + (name ? ' — ' + name : '');
+    const body = [
+      'Здравствуйте, Кирилл!',
+      '',
+      name ? `Имя: ${name}` : 'Имя: не указано',
+      contact ? `Контакт: ${contact}` : 'Контакт: не указан',
+      '',
+      'Ситуация:',
+      message || 'не описана',
+      '',
+      'Сообщение сформировано на сайте askuyr.github.io/Chigirin/'
+    ].join('\n');
+    const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return { subject, body, mailto };
+  };
+
+  const copyText = async (text) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (error) {
+        /* fall through to the legacy method */
+      }
+    }
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    let copied = false;
+    try {
+      copied = document.execCommand('copy');
+    } catch (error) {
+      copied = false;
+    }
+    area.remove();
+    return copied;
+  };
+
+  if (form) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        setStatus('Заполните обязательные поля и подтвердите согласие на обработку данных.', true);
+        return;
+      }
+      const { mailto } = buildLetter();
+      setStatus('Открываем почтовую программу с готовым письмом. Если окно не появилось, скопируйте текст кнопкой «Скопировать текст».');
+      window.location.href = mailto;
+    });
+  }
+
+  if (copyButton) {
+    copyButton.addEventListener('click', async () => {
+      const { subject, body } = buildLetter();
+      const copied = await copyText(`Тема: ${subject}\n\n${body}`);
+      setStatus(
+        copied
+          ? 'Текст скопирован. Вставьте его в письмо на c.chigirin@yandex.ru или отправьте в ВКонтакте.'
+          : 'Не удалось скопировать автоматически. Выделите текст обращения и скопируйте его вручную.',
+        !copied
+      );
+    });
+  }
+})();
 </script>
 </body>
 </html>

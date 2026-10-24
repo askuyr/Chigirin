@@ -12,7 +12,8 @@
 <meta name="robots" content="index,follow">
 <meta name="author" content="Кирилл Чигирин">
 <link rel="canonical" href="https://askuyr.github.io/Chigirin/">
-<link rel="preload" as="image" href="assets/kirill-chigirin.jpg">
+<link rel="preload" as="image" href="assets/kirill-chigirin.webp" type="image/webp" fetchpriority="high">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Кирилл Чигирин — юрист">
@@ -30,7 +31,6 @@
 <meta name="twitter:description" content="Юридические консультации, подготовка документов и представительство в Санкт-Петербурге.">
 <meta name="twitter:image" content="https://askuyr.github.io/Chigirin/assets/og-chigirin.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%239F2E10'/%3E%3Cstop offset='1' stop-color='%23E8892F'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2316130E'/%3E%3Crect x='8' y='8' width='48' height='48' rx='10' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-size='28' fill='%23F1B978' font-family='Georgia'%3E%D0%A7%3C/text%3E%3C/svg%3E">
 <style>
 :root{
   --bg:#16130E;
@@ -52,7 +52,6 @@
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
   margin:0;
-  min-width:320px;
   font:17px/1.72 "Inter",Arial,sans-serif;
   color:var(--text);
   background:
@@ -62,9 +61,9 @@ body{
   overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
-button,input,textarea{font:inherit}
+button{font:inherit}
 a,button,summary{-webkit-tap-highlight-color:transparent}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
 img{max-width:100%;display:block}
 .wrap{width:min(1180px,calc(100% - 64px));margin:0 auto}
 .skip{position:absolute;left:20px;top:-100px;background:#fff;color:#000;padding:12px 14px;z-index:100}
@@ -121,9 +120,10 @@ body::after{
   box-shadow:0 0 24px rgba(232,137,47,.08) inset;
 }
 .brand strong{display:block;font-size:16px;letter-spacing:.16em;white-space:nowrap}
-.brand small{display:block;font-size:11px;color:var(--muted);letter-spacing:.12em;white-space:nowrap}
+.brand small{display:block;font-size:12px;color:var(--muted);letter-spacing:.12em;white-space:nowrap}
 .links{display:flex;align-items:center;gap:26px;font-size:15px;font-weight:500;flex-wrap:wrap;justify-content:flex-end}
 .links a{position:relative;color:#e9dccb;opacity:.88;transition:opacity .2s,color .2s}
+.links a::before{content:"";position:absolute;inset:-9px 0}
 .links a:hover{color:var(--gold);opacity:1}
 .links a[aria-current="true"]{color:var(--gold-soft);opacity:1}
 .links a[aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;border-radius:2px;background:var(--gold)}
@@ -132,7 +132,7 @@ body::after{
   background:rgba(255,255,255,.03)
 }
 .nav-cta[aria-current="true"]::after{display:none}
-.menu{display:none;background:none;color:#fff;border:1px solid rgba(241,185,120,.25);border-radius:12px;padding:8px 12px}
+.menu{display:none;background:none;color:#fff;border:1px solid rgba(241,185,120,.25);border-radius:12px;min-height:44px;min-width:44px;padding:10px 14px}
 
 .section{position:relative;padding:108px 0}
 .section-alt{
@@ -218,6 +218,7 @@ p{max-width:72ch}
 .portrait{
   position:relative;overflow:hidden;border-radius:22px;background:#3b2f21;z-index:1;margin:0
 }
+.portrait picture{display:block}
 .portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;filter:saturate(1.03) contrast(1.04)}
 .portrait::after{
   content:"";position:absolute;inset:0;background:
@@ -242,7 +243,6 @@ p{max-width:72ch}
 .metric span{color:var(--muted);font-size:14px;display:block}
 
 .about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:start}
-.contact-layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:36px;align-items:stretch}
 .practice-grid{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr);gap:42px;align-items:start}
 .services-grid,.reasons-grid,.practice-cards{display:grid;gap:22px}
 .services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
@@ -357,43 +357,20 @@ p{max-width:72ch}
 }
 .contact-panel h2{font-size:clamp(28px,3vw,38px);line-height:1.16;margin-bottom:16px}
 .contact-panel .lead{font-size:16.5px;line-height:1.75}
-.contact-list{display:grid;gap:14px;margin-top:28px}
-.contact-item{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(241,185,120,.10)}
-.contact-item strong{display:block;color:var(--gold-soft);margin-bottom:6px;font-weight:700;letter-spacing:.02em}
+.contact-wrap{max-width:880px}
+.contact-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px;align-items:start}
+.contact-item{padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(241,185,120,.10)}
+.contact-item strong{display:block;color:var(--gold-soft);margin-bottom:2px;font-weight:700;letter-spacing:.02em}
 .contact-panel a{color:var(--gold-soft);transition:color .2s}
+.contact-panel .contact-item a,.contact-social-links a{display:inline-flex;align-items:center;min-height:44px}
 .contact-panel a:hover{color:var(--gold);text-decoration:underline}
-.contact-social-links{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.contact-social-links{display:flex;flex-direction:column;gap:0;margin-top:0}
 .contact-social-links a{display:inline-flex;gap:8px;align-items:center}
 .contact-vcard{
   display:inline-flex;align-items:center;gap:9px;align-self:flex-start;margin-top:22px;padding-bottom:4px;
-  font-size:14px;color:var(--gold-soft);border-bottom:1px solid rgba(241,185,120,.3)
+  min-height:44px;font-size:14px;color:var(--gold-soft);border-bottom:1px solid rgba(241,185,120,.3)
 }
 .contact-vcard svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.contact-form{gap:15px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-field{display:flex;flex-direction:column;gap:7px}
-.form-field.full{grid-column:1/-1}
-.form-field label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#d6c0a4}
-.form-field input,.form-field textarea{
-  width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(241,185,120,.18);
-  background:rgba(255,255,255,.045);color:var(--text);font-size:16px;transition:border-color .2s,box-shadow .2s,background .2s
-}
-.form-field textarea{min-height:118px;resize:vertical}
-.form-field input::placeholder,.form-field textarea::placeholder{color:#c2ad92;opacity:1}
-.form-field input:focus,.form-field textarea:focus{
-  outline:none;border-color:rgba(232,137,47,.6);background:rgba(255,255,255,.065);
-  box-shadow:0 0 0 3px rgba(232,137,47,.14)
-}
-.form-consent{display:flex;gap:11px;align-items:flex-start;font-size:13px;line-height:1.6;color:#c9b79d}
-.form-consent input{
-  width:18px;height:18px;margin:2px 0 0;flex-shrink:0;accent-color:var(--accent);cursor:pointer
-}
-.form-consent a{color:var(--gold-soft);text-decoration:underline;text-underline-offset:2px}
-.form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
-.form-actions .button{min-height:50px;padding:12px 22px;font-size:15px}
-.form-note{font-size:12.5px;line-height:1.65;color:#b9a58b}
-.form-status{min-height:21px;font-size:14px;line-height:1.5;color:var(--gold-soft)}
-.form-status.is-error{color:#ffb4a2}
 
 .footer{padding:48px 0 28px;border-top:1px solid rgba(241,185,120,.10);margin-top:36px;background:rgba(0,0,0,.12)}
 .footer-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:32px;align-items:start}
@@ -401,17 +378,17 @@ p{max-width:72ch}
 .footer-brand .monogram{width:42px;height:46px;font-size:25px;border-radius:11px}
 .footer-brand strong{display:block;font-size:14px;letter-spacing:.14em;color:#f0e1cb}
 .footer-brand small{display:block;margin-top:4px;font-size:13px;color:var(--muted)}
-.footer-nav,.footer-contact{display:flex;flex-direction:column;gap:9px;font-size:14px}
-.footer-title{margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#b79b78}
-.footer-nav a,.footer-contact a{color:#d9c6ab;transition:color .2s}
+.footer-nav,.footer-contact{display:flex;flex-direction:column;gap:0;font-size:14px}
+.footer-title{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#b79b78}
+.footer-nav a,.footer-contact a{display:inline-flex;align-items:center;min-height:44px;color:#d9c6ab;transition:color .2s}
 .footer-nav a:hover,.footer-contact a:hover{color:var(--gold)}
 .footer-bottom{
   display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-top:36px;
   padding-top:22px;border-top:1px solid rgba(241,185,120,.10);font-size:13px;line-height:1.65;color:#b9a58b
 }
 .footer-bottom > span{max-width:70ch}
-.footer-links{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:flex-end;flex-shrink:0}
-.footer-links a{color:#d9c6ab;transition:color .2s}
+.footer-links{display:flex;flex-wrap:wrap;gap:0 18px;justify-content:flex-end;flex-shrink:0}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px;color:#d9c6ab;transition:color .2s}
 .footer-links a:hover{color:var(--gold)}
 
 .to-top{
@@ -429,7 +406,7 @@ p{max-width:72ch}
 .hero-card{animation:pulseGlow 6s ease-in-out infinite}
 
 @media (max-width:1080px){
-  .hero-layout,.about-grid,.practice-grid,.contact-layout{grid-template-columns:1fr;gap:34px}
+  .hero-layout,.about-grid,.practice-grid{grid-template-columns:1fr;gap:34px}
   .hero-card{justify-self:center;max-width:520px}
   .services-grid{grid-template-columns:repeat(2,1fr);gap:26px}
   .reasons-grid{grid-template-columns:repeat(2,1fr)}
@@ -450,10 +427,11 @@ p{max-width:72ch}
   .brand strong{font-size:12px;letter-spacing:.08em}
   .brand small{display:none}
   .monogram{width:42px;height:46px;font-size:26px}
-  .menu{display:block;flex-shrink:0;font-size:13px;padding:8px 10px}
+  .menu{display:block;flex-shrink:0;font-size:13px;padding:10px 12px}
   .links{display:none;flex-direction:column;align-items:stretch;width:100%;gap:0;padding:6px 0 8px;border-top:1px solid rgba(241,185,120,.10);margin-top:12px}
   .links.open{display:flex}
-  .links a,.nav-cta{padding:13px 2px;border-radius:0;background:none;border:none;border-bottom:1px solid rgba(241,185,120,.08)}
+  .links a,.nav-cta{display:flex;align-items:center;min-height:46px;padding:13px 2px;border-radius:0;background:none;border:none;border-bottom:1px solid rgba(241,185,120,.08)}
+  .links a::before{display:none}
   .links a[aria-current="true"]::after{display:none}
   .links a[aria-current="true"]{background:rgba(232,137,47,.07);padding-left:10px}
   .links a:last-child{border-bottom:none}
@@ -476,8 +454,7 @@ p{max-width:72ch}
   .caption .glass-card{display:none}
   .contact-panel{padding:24px}
   .contact-panel h2{font-size:27px}
-  .form-grid{grid-template-columns:1fr}
-  .form-actions .button{width:100%}
+  .contact-list{grid-template-columns:1fr}
   .footer{padding:36px 0 26px}
   .footer-grid{grid-template-columns:1fr;gap:24px}
   .footer-bottom{gap:16px}
@@ -591,7 +568,10 @@ p{max-width:72ch}
       </div>
       <div class="hero-card reveal">
         <figure class="portrait">
-          <img src="assets/kirill-chigirin.jpg" decoding="async" width="853" height="1279" alt="Кирилл Чигирин, юрист" fetchpriority="high">
+          <picture>
+            <source srcset="assets/kirill-chigirin.webp" type="image/webp">
+            <img src="assets/kirill-chigirin.jpg" decoding="async" width="853" height="1279" alt="Кирилл Чигирин, юрист" fetchpriority="high">
+          </picture>
           <figcaption class="caption">
             <div><div class="name">Кирилл Чигирин</div><small>Юрист</small></div>
             <div class="hero-badge glass-card">Заместитель Главы<br>МО «Морские ворота»</div>
@@ -793,7 +773,7 @@ p{max-width:72ch}
   </section>
 
 <section class="section contact" id="contact">
-    <div class="wrap contact-layout">
+    <div class="wrap contact-wrap">
       <div class="contact-panel reveal">
         <div class="eyebrow">Контакты</div>
         <h2>Начните с вопроса — разберём, как двигаться дальше.</h2>
@@ -815,36 +795,6 @@ p{max-width:72ch}
           Добавить контакты в телефон
         </a>
       </div>
-
-      <form class="contact-panel contact-form reveal" id="consult-form" novalidate>
-        <div class="eyebrow">Обращение</div>
-        <h2>Опишите ситуацию — подготовим ответ.</h2>
-        <p class="lead">Заполните поля, и сайт сформирует письмо в вашей почтовой программе. Данные не отправляются на сервер.</p>
-        <div class="form-grid">
-          <div class="form-field">
-            <label for="cf-name">Имя</label>
-            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
-          </div>
-          <div class="form-field">
-            <label for="cf-contact">Телефон или e-mail</label>
-            <input id="cf-contact" name="contact" type="text" autocomplete="tel" placeholder="+7 ... или mail@example.ru" required>
-          </div>
-          <div class="form-field full">
-            <label for="cf-message">Кратко о ситуации</label>
-            <textarea id="cf-message" name="message" placeholder="Что произошло и какой результат для вас важен" required></textarea>
-          </div>
-        </div>
-        <label class="form-consent">
-          <input id="cf-consent" name="consent" type="checkbox" required>
-          <span>Согласен на обработку персональных данных в соответствии с <a href="consent.html">согласием</a> и <a href="privacy.html">политикой конфиденциальности</a>.</span>
-        </label>
-        <div class="form-actions">
-          <button class="button primary" type="submit">Сформировать письмо</button>
-          <button class="button secondary" type="button" id="copy-letter">Скопировать текст</button>
-        </div>
-        <p class="form-note">Кнопка откроет вашу почтовую программу с готовым письмом на c.chigirin@yandex.ru. Если она не настроена, скопируйте текст и отправьте его удобным способом.</p>
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-      </form>
     </div>
   </section>
 </main>
@@ -979,90 +929,6 @@ p{max-width:72ch}
     });
   }
 
-  const form = document.querySelector('#consult-form');
-  const status = document.querySelector('#form-status');
-  const copyButton = document.querySelector('#copy-letter');
-  const email = 'c.chigirin@yandex.ru';
-
-  const setStatus = (message, isError = false) => {
-    if (!status) return;
-    status.textContent = message;
-    status.classList.toggle('is-error', isError);
-  };
-
-  const buildLetter = () => {
-    if (!form) return { subject: 'Обращение с сайта', body: '', mailto: `mailto:${email}` };
-    const name = form.querySelector('#cf-name').value.trim();
-    const contact = form.querySelector('#cf-contact').value.trim();
-    const message = form.querySelector('#cf-message').value.trim();
-    const subject = 'Обращение с сайта' + (name ? ' — ' + name : '');
-    const body = [
-      'Здравствуйте, Кирилл!',
-      '',
-      name ? `Имя: ${name}` : 'Имя: не указано',
-      contact ? `Контакт: ${contact}` : 'Контакт: не указан',
-      '',
-      'Ситуация:',
-      message || 'не описана',
-      '',
-      'Сообщение сформировано на сайте askuyr.github.io/Chigirin/'
-    ].join('\n');
-    const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    return { subject, body, mailto };
-  };
-
-  const copyText = async (text) => {
-    if (navigator.clipboard && window.isSecureContext) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch (error) {
-        /* fall through to the legacy method */
-      }
-    }
-    const area = document.createElement('textarea');
-    area.value = text;
-    area.setAttribute('readonly', '');
-    area.style.position = 'fixed';
-    area.style.opacity = '0';
-    document.body.appendChild(area);
-    area.select();
-    let copied = false;
-    try {
-      copied = document.execCommand('copy');
-    } catch (error) {
-      copied = false;
-    }
-    area.remove();
-    return copied;
-  };
-
-  if (form) {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        setStatus('Заполните обязательные поля и подтвердите согласие на обработку данных.', true);
-        return;
-      }
-      const { mailto } = buildLetter();
-      setStatus('Открываем почтовую программу с готовым письмом. Если окно не появилось, скопируйте текст кнопкой «Скопировать текст».');
-      window.location.href = mailto;
-    });
-  }
-
-  if (copyButton) {
-    copyButton.addEventListener('click', async () => {
-      const { subject, body } = buildLetter();
-      const copied = await copyText(`Тема: ${subject}\n\n${body}`);
-      setStatus(
-        copied
-          ? 'Текст скопирован. Вставьте его в письмо на c.chigirin@yandex.ru или отправьте в ВКонтакте.'
-          : 'Не удалось скопировать автоматически. Выделите текст обращения и скопируйте его вручную.',
-        !copied
-      );
-    });
-  }
 })();
 </script>
 </body>

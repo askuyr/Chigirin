@@ -1,0 +1,12 @@
+name = "chigirin-lead"
+main = "src/index.js"
+compatibility_date = "2026-10-25"
+
+# Публичные значения. Секреты (MAX_BOT_TOKEN, RESEND_API_KEY) сюда не пишем —
+# они задаются командами `wrangler secret put ...` и хранятся только в Cloudflare.
+
+[vars]
+LEAD_EMAIL = "[EMAIL]"
+MAIL_FROM = "site@[ВАШ-ДОМЕН]"
+MAX_USER_ID = "[MAX_USER_ID]"
+ALLOWED_ORIGINS = "https://askuyr.github.io"

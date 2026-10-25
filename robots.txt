@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /_layout-test.html
 
 Sitemap: https://askuyr.github.io/Chigirin/sitemap.xml

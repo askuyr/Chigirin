@@ -19,8 +19,8 @@ assets/
   app.js            — меню, анимации появления, форма, cookie, CTA
   fonts.css         — @font-face для локальных шрифтов
   fonts/            — Inter и Cormorant Garamond (woff2, кириллица + латиница)
-  kirill-chigirin-{480,640,853}.webp — адаптивный портрет
-  kirill-chigirin.jpg               — исходник портрета (для пересборки)
+  kirill-chigirin-{480,640,800}.webp — портрет в кадрировании 4:5 для srcset
+  kirill-chigirin.jpg               — исходник портрета (для пересборки кадров)
   og-chigirin.jpg                   — картинка для соцсетей 1200×630
   favicon.svg, apple-touch-icon.png
   chigirin.vcf                      — контакт для добавления в телефон

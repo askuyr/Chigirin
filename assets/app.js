@@ -55,7 +55,7 @@
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 980) setMenu(false);
+      if (window.innerWidth > 1100) setMenu(false);
     });
   }
 

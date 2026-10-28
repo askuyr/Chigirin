@@ -32,13 +32,21 @@
 
 <link rel="preload" as="image" href="assets/kirill-chigirin-640.webp"
       imagesrcset="assets/kirill-chigirin-480.webp 480w, assets/kirill-chigirin-640.webp 640w, assets/kirill-chigirin-800.webp 800w"
-      imagesizes="(max-width: 900px) 92vw, 440px" fetchpriority="high">
+      imagesizes="(max-width: 436px) 92vw, (max-width: 900px) 400px, (max-width: 1100px) 380px, 440px" fetchpriority="high">
 <link rel="preload" href="assets/fonts/inter-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/cormorant-garamond-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/styles.css">
-<script>document.documentElement.classList.add('js');</script>
+<script>
+  /* Fail-safe: если app.js не выполнится, контент станет видимым через 3 с. */
+  (function () {
+    var root = document.documentElement;
+    root.classList.add('js-boot');
+    window.__revealFailsafe = setTimeout(function () {
+      root.classList.remove('js-boot');
+    }, 3000);
+  })();
+</script>
 
 <script type="application/ld+json">
 {
@@ -225,7 +233,7 @@
       <figure class="hero-portrait">
         <img src="assets/kirill-chigirin-640.webp"
              srcset="assets/kirill-chigirin-480.webp 480w, assets/kirill-chigirin-640.webp 640w, assets/kirill-chigirin-800.webp 800w"
-             sizes="(max-width: 900px) 92vw, 440px"
+             sizes="(max-width: 436px) 92vw, (max-width: 900px) 400px, (max-width: 1100px) 380px, 440px"
              width="640" height="800"
              alt="Кирилл Чигирин — юрист по гражданским спорам в Санкт-Петербурге"
              fetchpriority="high" decoding="async">

@@ -53,6 +53,9 @@
     revealItems.forEach((el) => revealObserver.observe(el));
   }
 
+  /* Появление секций настроено — отменяем fail-safe из <head>. */
+  clearTimeout(window.__revealFailsafe);
+
   /* --- Подсветка активного пункта меню ----------------------------- */
   const navLinks = $$('#navigation a[href^="#"]');
   const navTargets = navLinks

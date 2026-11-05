@@ -1,4 +1,4 @@
-/* Кирилл Чигирин — юрист. Клиентские скрипты: меню, появление секций, навигация. */
+/* Кирилл Чигирин, юрист. Меню, появление секций, смена кадра портрета. */
 (() => {
   'use strict';
 
@@ -32,29 +32,80 @@
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 1100) setMenu(false);
+      if (window.innerWidth > 1024) setMenu(false);
     });
   }
 
-  /* --- Появление секций при скролле -------------------------------- */
+  /* --- Появление секций -------------------------------------------- */
   const revealItems = $$('.reveal');
 
   if (reduceMotion.matches || !('IntersectionObserver' in window)) {
-    revealItems.forEach((el) => el.classList.add('is-visible'));
+    revealItems.forEach((el) => el.classList.add('is-in'));
   } else {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
+        entry.target.classList.add('is-in');
         observer.unobserve(entry.target);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.06, rootMargin: '0px 0px -8% 0px' });
 
     revealItems.forEach((el) => revealObserver.observe(el));
   }
 
-  /* Появление секций настроено — отменяем fail-safe из <head>. */
   clearTimeout(window.__revealFailsafe);
+
+  /* Страховка: если наблюдатель не сработал (быстрый скролл, вкладка в фоне),
+     контент всё равно становится видимым. */
+  setTimeout(() => revealItems.forEach((el) => el.classList.add('is-in')), 5000);
+
+  /* --- Смена кадра портрета: общий, надпись, лицо ------------------- */
+  const shots = $$('.shot');
+  const stageSections = [$('#home'), $('#about'), $('#process')].filter(Boolean);
+
+  if (shots.length > 1 && stageSections.length > 1 && !reduceMotion.matches && window.matchMedia('(min-width: 901px)').matches && 'IntersectionObserver' in window) {
+    const setShot = (name) => {
+      shots.forEach((img) => img.classList.toggle('is-active', img.dataset.shot === name));
+    };
+
+    const shotObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        setShot(entry.target.dataset.shotName);
+      });
+    }, { rootMargin: '-25% 0px -55% 0px' });
+
+    stageSections.forEach((el) => {
+      el.dataset.shotName = el.id;
+      shotObserver.observe(el);
+    });
+  }
+
+  /* --- Медленное движение фотополосы ------------------------------- */
+  const parallax = $('[data-parallax]');
+
+  if (parallax && !reduceMotion.matches) {
+    let ticking = false;
+
+    const updateParallax = () => {
+      const rect = parallax.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < vh) {
+        const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+        const shift = Math.max(-42, Math.min(42, progress * -56));
+        parallax.style.setProperty('--px', shift.toFixed(1) + 'px');
+      }
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateParallax);
+    }, { passive: true });
+
+    updateParallax();
+  }
 
   /* --- Подсветка активного пункта меню ----------------------------- */
   const navLinks = $$('#navigation a[href^="#"]');
@@ -77,6 +128,19 @@
     }, { rootMargin: '-45% 0px -50% 0px' });
 
     navTargets.forEach((section) => spy.observe(section));
+  }
+
+  /* --- «С чего начать»: подсказка без отправки данных -------------- */
+  const chooserOut = $('[data-chooser-out]');
+
+  if (chooserOut) {
+    $$('[data-answer]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        chooserOut.hidden = false;
+        chooserOut.textContent = link.dataset.answer;
+      });
+    });
   }
 
   /* --- Кнопка «наверх» --------------------------------------------- */
@@ -103,21 +167,5 @@
     });
 
     updateToTop();
-  }
-
-  /* --- FAQ: эксклюзивное раскрытие для старых браузеров ----------- */
-  const faqItems = $$('details[name="faq"]');
-  const supportsExclusive = (() => {
-    const el = document.createElement('details');
-    return 'name' in el;
-  })();
-
-  if (faqItems.length && !supportsExclusive) {
-    faqItems.forEach((item) => {
-      item.addEventListener('toggle', () => {
-        if (!item.open) return;
-        faqItems.forEach((other) => { if (other !== item) other.open = false; });
-      });
-    });
   }
 })();

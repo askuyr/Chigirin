@@ -1,0 +1,58 @@
+[
+ {
+  "file": "assets/bronze-horseman.webp",
+  "media": "image",
+  "ref": "commons:146857645",
+  "title": "The Bronze Horseman 2013 2",
+  "creator": "Perituss",
+  "date": "2013-05-10",
+  "license": "CC0",
+  "licenseCode": "cc0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "creditRequired": false,
+  "page": "https://commons.wikimedia.org/wiki/File:The_Bronze_Horseman_2013_2.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/The_Bronze_Horseman_2013_2.jpg/1920px-The_Bronze_Horseman_2013_2.jpg",
+  "credit": "\"The Bronze Horseman 2013 2\" by Perituss, CC0, via Wikimedia Commons",
+  "changes": "resized to 1600px and converted to WebP; shown in grayscale on the page",
+  "notes": []
+ },
+ {
+  "file": "assets/justice-sculpture.webp",
+  "media": "image",
+  "ref": "commons:95162270",
+  "title": "Sculpture of justice. The building of Senate and Synod",
+  "creator": "Александр Байдуков",
+  "date": "2020-10-17",
+  "license": "CC BY-SA 4.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Sculpture_of_justice._The_building_of_Senate_and_Synod.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Sculpture_of_justice._The_building_of_Senate_and_Synod.jpg/1920px-Sculpture_of_justice._The_building_of_Senate_and_Synod.jpg",
+  "credit": "\"Sculpture of justice. The building of Senate and Synod\" by Александр Байдуков, CC BY-SA 4.0, via Wikimedia Commons",
+  "changes": "resized to 1200px, converted to WebP, cropped and shown in grayscale; adapted version is shared under CC BY-SA 4.0",
+  "notes": [
+   "Share-alike: the adapted image is shared under CC BY-SA 4.0."
+  ]
+ },
+ {
+  "file": "assets/spb-map-1849.webp",
+  "media": "image",
+  "ref": "commons:97844483",
+  "title": "Meyer‘s Zeitungsatlas 050 – Russland: Gouvernement Sankt Petersburg, Esthland, Liefland, Kurland",
+  "creator": "Gezeichnet von Art. Pr. Ltn. Renner",
+  "date": "1849",
+  "license": "public domain",
+  "licenseCode": "pd",
+  "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "creditRequired": false,
+  "page": "https://commons.wikimedia.org/wiki/File:Meyer%E2%80%98s_Zeitungsatlas_050_%E2%80%93_Russland-_Gouvernement_Sankt_Petersburg,_Esthland,_Liefland,_Kurland.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Meyer%E2%80%98s_Zeitungsatlas_050_%E2%80%93_Russland-_Gouvernement_Sankt_Petersburg%2C_Esthland%2C_Liefland%2C_Kurland.jpg/1920px-Meyer%E2%80%98s_Zeitungsatlas_050_%E2%80%93_Russland-_Gouvernement_Sankt_Petersburg%2C_Esthland%2C_Liefland%2C_Kurland.jpg",
+  "credit": "\"Meyer‘s Zeitungsatlas 050 – Russland: Gouvernement Sankt Petersburg, Esthland, Liefland…\" by Gezeichnet von Art. Pr. Ltn. Renner, public domain, via Wikimedia Commons",
+  "changes": "cropped to the Saint Petersburg city-plan inset and converted to WebP",
+  "notes": []
+ }
+]

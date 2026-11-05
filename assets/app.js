@@ -82,42 +82,22 @@
      контент всё равно становится видимым. */
   setTimeout(() => revealItems.forEach((el) => el.classList.add('is-in')), 5000);
 
-  /* --- Смена кадра портрета: общий, надпись, лицо ------------------- */
-  const shots = $$('.shot');
-  const stageSections = [$('#home'), $('#about'), $('#process')].filter(Boolean);
+  /* --- Параллакс портрета и фотополосы ----------------------------- */
+  const parallaxEls = $$('[data-parallax]');
 
-  if (shots.length > 1 && stageSections.length > 1 && !reduceMotion.matches && window.matchMedia('(min-width: 901px)').matches && 'IntersectionObserver' in window) {
-    const setShot = (name) => {
-      shots.forEach((img) => img.classList.toggle('is-active', img.dataset.shot === name));
-    };
-
-    const shotObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        setShot(entry.target.dataset.shotName);
-      });
-    }, { rootMargin: '-25% 0px -55% 0px' });
-
-    stageSections.forEach((el) => {
-      el.dataset.shotName = el.id;
-      shotObserver.observe(el);
-    });
-  }
-
-  /* --- Медленное движение фотополосы ------------------------------- */
-  const parallax = $('[data-parallax]');
-
-  if (parallax && !reduceMotion.matches) {
+  if (parallaxEls.length && !reduceMotion.matches) {
     let ticking = false;
 
     const updateParallax = () => {
-      const rect = parallax.getBoundingClientRect();
       const vh = window.innerHeight;
-      if (rect.bottom > 0 && rect.top < vh) {
+      parallaxEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < -80 || rect.top > vh + 80) return;
+        const max = parseFloat(el.dataset.parallax) || 42;
         const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
-        const shift = Math.max(-42, Math.min(42, progress * -56));
-        parallax.style.setProperty('--px', shift.toFixed(1) + 'px');
-      }
+        const shift = Math.max(-max, Math.min(max, progress * -max * 1.4));
+        el.style.setProperty('--px', shift.toFixed(1) + 'px');
+      });
       ticking = false;
     };
 

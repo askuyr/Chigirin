@@ -230,11 +230,10 @@
 
 <main id="main">
 
-  <!-- ================= Первый экран: постоянный портрет ================= -->
-  <div class="stage" id="home">
-    <div class="stage__col">
-
-      <div class="hero reveal">
+  <!-- ================= Первый экран: портрет только сверху ================= -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal">
         <h1>Кирилл Чигирин</h1>
         <p class="hero-role">Юрист по гражданским спорам. Санкт-Петербург.</p>
         <p class="hero-lead">Разбираю ситуацию по документам, оцениваю перспективы и веду дело: от претензии до исполнения решения. План действий и стоимость обсуждаем до начала работы.</p>
@@ -249,14 +248,31 @@
         </ul>
       </div>
 
-      <!-- ================= О практике ================= -->
-      <section class="stage__section about reveal" id="about">
+      <figure class="hero-portrait">
+        <div class="hero-portrait__frame">
+          <img data-parallax="14"
+               src="assets/kirill-chigirin-1280.webp"
+               srcset="assets/kirill-chigirin-640.webp 640w, assets/kirill-chigirin-960.webp 960w, assets/kirill-chigirin-1280.webp 1280w, assets/kirill-chigirin-1600.webp 1600w"
+               sizes="(max-width: 900px) 100vw, 45vw"
+               width="1280" height="1707" fetchpriority="high" decoding="async"
+               alt="Кирилл Чигирин в зале Совета Федерации">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= О практике ================= -->
+  <section class="section about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy reveal">
         <h2>О практике</h2>
         <p class="lead">Кирилл Чигирин, юрист в Санкт-Петербурге. Веду гражданские споры: договоры, ущерб, задолженность.</p>
         <p>Заместитель Главы муниципального образования «Морские ворота». Это опыт работы с нормативными актами и публичными органами, который помогает в спорах с организациями и администрацией.</p>
         <p><b>Начинаю с фактов</b>: изучаю договоры, переписку, платёжные и процессуальные документы. Затем формулирую правовую позицию: что подтверждается доказательствами, где слабые места и какие варианты решения существуют.</p>
         <p class="about__note"><b>Если перспективы неблагоприятные</b>, скажу об этом прямо. Необоснованный спор обходится дороже, чем своевременный отказ от него.</p>
+      </div>
 
+      <div class="about-side reveal">
         <dl class="facts">
           <div>
             <dt>Образование</dt>
@@ -283,63 +299,51 @@
             <span>План Санкт-Петербурга. Атлас Мейера, 1849</span>
           </figcaption>
         </figure>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- ================= Порядок работы ================= -->
-      <section class="stage__section process reveal" id="process">
+  <!-- ================= Порядок работы ================= -->
+  <section class="section process" id="process">
+    <div class="wrap process-grid">
+      <div class="process-head reveal">
         <h2>Как идёт работа</h2>
         <p class="lead">Сначала разговор, потом документы и правовая позиция. Вы заранее знаете, что происходит и что будет дальше.</p>
+      </div>
 
-        <ol class="steps">
-          <li>
-            <h3>Звонок</h3>
-            <p>Коротко описываете ситуацию и говорите, чего хотите добиться. Если удобнее письмом, напишите на почту.</p>
-          </li>
-          <li>
-            <h3>Консультация</h3>
-            <p>Разбираем обстоятельства и документы, оцениваю перспективы и риски.</p>
-          </li>
-          <li>
-            <h3>План</h3>
-            <p>Формулирую правовую позицию: что делать, в каком порядке, чего ожидать. Согласуем объём и стоимость.</p>
-          </li>
-          <li>
-            <h3>Работа</h3>
-            <p>Готовлю документы, направляю требования, представляю интересы в суде.</p>
-          </li>
-          <li>
-            <h3>Результат</h3>
-            <p>Решение суда, работа по его исполнению и разбор того, что получилось.</p>
-          </li>
-        </ol>
+      <ol class="steps reveal">
+        <li>
+          <h3>Звонок</h3>
+          <p>Коротко описываете ситуацию и говорите, чего хотите добиться. Если удобнее письмом, напишите на почту.</p>
+        </li>
+        <li>
+          <h3>Консультация</h3>
+          <p>Разбираем обстоятельства и документы, оцениваю перспективы и риски.</p>
+        </li>
+        <li>
+          <h3>План</h3>
+          <p>Формулирую правовую позицию: что делать, в каком порядке, чего ожидать. Согласуем объём и стоимость.</p>
+        </li>
+        <li>
+          <h3>Работа</h3>
+          <p>Готовлю документы, направляю требования, представляю интересы в суде.</p>
+        </li>
+        <li>
+          <h3>Результат</h3>
+          <p>Решение суда, работа по его исполнению и разбор того, что получилось.</p>
+        </li>
+      </ol>
 
+      <div class="process-foot reveal">
         <p class="process__out">На выходе: понятный план действий и согласованная стоимость.</p>
         <p class="note">Сроки зависят от суда и обстоятельств. После разбора документов называю ориентировочные этапы и объясняю, от чего они зависят.</p>
-      </section>
-
+      </div>
     </div>
-
-    <div class="stage__media">
-      <figure class="portrait">
-        <img class="shot is-active" data-shot="home"
-             src="assets/kirill-chigirin-1280.webp"
-             srcset="assets/kirill-chigirin-640.webp 640w, assets/kirill-chigirin-960.webp 960w, assets/kirill-chigirin-1280.webp 1280w, assets/kirill-chigirin-1600.webp 1600w"
-             sizes="(max-width: 900px) 100vw, 45vw"
-             width="1280" height="1707" fetchpriority="high" decoding="async"
-             alt="Кирилл Чигирин в зале Совета Федерации">
-        <img class="shot" data-shot="about" src="assets/kirill-chigirin-1280.webp"
-             srcset="assets/kirill-chigirin-640.webp 640w, assets/kirill-chigirin-960.webp 960w, assets/kirill-chigirin-1280.webp 1280w, assets/kirill-chigirin-1600.webp 1600w"
-             sizes="(max-width: 900px) 100vw, 45vw" width="1280" height="1707" alt="Кирилл Чигирин в зале Совета Федерации" aria-hidden="true" decoding="async">
-        <img class="shot" data-shot="process" src="assets/kirill-chigirin-1280.webp"
-             srcset="assets/kirill-chigirin-640.webp 640w, assets/kirill-chigirin-960.webp 960w, assets/kirill-chigirin-1280.webp 1280w, assets/kirill-chigirin-1600.webp 1600w"
-             sizes="(max-width: 900px) 100vw, 45vw" width="1280" height="1707" alt="Кирилл Чигирин в зале Совета Федерации" aria-hidden="true" decoding="async">
-      </figure>
-    </div>
-  </div>
+  </section>
 
   <figure class="band reveal">
     <div class="band__media">
-      <img data-parallax src="assets/bronze-horseman.webp" width="1600" height="1067" loading="lazy" decoding="async"
+      <img data-parallax="42" src="assets/bronze-horseman.webp" width="1600" height="1067" loading="lazy" decoding="async"
            alt="Медный всадник на Сенатской площади в Санкт-Петербурге">
     </div>
     <figcaption class="wrap">Медный всадник. Сенатская площадь, Санкт-Петербург</figcaption>

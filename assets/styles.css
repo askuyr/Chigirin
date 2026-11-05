@@ -56,7 +56,8 @@
   --step-sm: 0.875rem;
   --step-body: 1.0625rem;
   --step-lead: 1.375rem;
-  --step-head: clamp(1.75rem, 1.15rem + 1.7vw, 2.25rem);
+  --step-head: clamp(1.875rem, 1.2rem + 1.9vw, 2.5rem);
+  --step-subhead: clamp(1.625rem, 1.45rem + .55vw, 1.75rem);
   --step-display: clamp(3rem, 1.9rem + 5.1vw, 5.75rem);
 
   --wrap: 1240px;
@@ -77,6 +78,9 @@ html {
 
 body {
   margin: 0;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  hanging-punctuation: first last;
   max-width: 1600px;
   margin-inline: auto;
   background: var(--paper);
@@ -150,21 +154,30 @@ h1 {
   font-size: var(--step-display);
   line-height: .96;
   letter-spacing: -.02em;
+  text-wrap: balance;
 }
 
 h2 {
   font-size: var(--step-head);
   line-height: 1.08;
   letter-spacing: -.01em;
+  text-wrap: balance;
 }
 
-h3 { line-height: 1.15; }
+h3 { line-height: 1.15; text-wrap: balance; }
 
 .lead {
   font-size: var(--step-lead);
   line-height: 1.42;
   color: var(--ink);
   max-width: 46ch;
+}
+
+p, li, dd { text-wrap: pretty; }
+
+.about p, .faq-text p, .service p, .case p {
+  hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
 }
 
 .note {
@@ -187,6 +200,7 @@ h3 { line-height: 1.15; }
 /* ---------- Кнопки и ссылки-действия ---------- */
 .btn {
   display: inline-flex;
+  white-space: nowrap;
   align-items: center;
   justify-content: center;
   min-height: 48px;
@@ -289,6 +303,7 @@ h3 { line-height: 1.15; }
 }
 .header-phone {
   font-size: var(--step-sm);
+  font-variant-numeric: tabular-nums lining-nums;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
@@ -439,6 +454,16 @@ h3 { line-height: 1.15; }
   color: var(--ink-soft);
 }
 .about .lead { margin-top: 0; color: var(--ink); }
+.about p b { color: var(--ink); }
+.about .lead::first-letter {
+  float: left;
+  padding: .06em .12em 0 0;
+  font-family: var(--font-serif);
+  font-size: 3.9em;
+  font-weight: 600;
+  line-height: .72;
+  color: var(--blue);
+}
 .about__note {
   padding: 18px 20px;
   background: var(--paper-2);
@@ -463,6 +488,8 @@ h3 { line-height: 1.15; }
 }
 .map-plate figcaption {
   display: flex;
+  font-family: var(--font-serif);
+  font-size: var(--step-body);
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 6px 18px;
@@ -486,12 +513,13 @@ h3 { line-height: 1.15; }
   content: counter(step) ".";
   position: absolute;
   left: 0;
-  top: -2px;
+  top: -4px;
   font-family: var(--font-serif);
-  font-size: var(--step-lead);
+  font-size: var(--step-subhead);
   font-weight: 600;
-  line-height: 1.2;
-  color: var(--blue);
+  line-height: 1.1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums lining-nums;
 }
 .steps h3 { font-size: var(--step-lead); font-weight: 700; }
 .steps p { margin-top: 6px; max-width: 44ch; font-size: var(--step-sm); color: var(--ink-soft); }
@@ -524,7 +552,8 @@ h3 { line-height: 1.15; }
 }
 .band figcaption {
   margin-top: 12px;
-  font-size: var(--step-sm);
+  font-family: var(--font-serif);
+  font-size: var(--step-body);
   color: var(--ink-soft);
 }
 
@@ -570,7 +599,7 @@ h3 { line-height: 1.15; }
   gap: clamp(32px, 4vw, 48px) clamp(32px, 4vw, 56px);
 }
 .service { scroll-margin-top: calc(var(--header-h) + 24px); }
-.service h3 { font-size: var(--step-head); }
+.service h3 { font-size: var(--step-subhead); }
 .service p {
   max-width: 50ch;
   margin-top: 10px;
@@ -600,16 +629,20 @@ h3 { line-height: 1.15; }
 }
 .cases-photo figcaption {
   margin-top: 12px;
-  font-size: var(--step-sm);
+  font-family: var(--font-serif);
+  font-size: var(--step-body);
   color: var(--ink-soft);
 }
 
 .cases { display: grid; gap: clamp(40px, 6vh, 64px); }
-.case h3 { font-size: var(--step-head); }
+.case h3 { font-size: var(--step-subhead); }
 .case__meta {
   margin-top: 10px;
-  font-size: var(--step-sm);
+  font-family: var(--font-serif);
+  font-size: var(--step-body);
+  line-height: 1.35;
   color: var(--ink-soft);
+  font-variant-numeric: tabular-nums lining-nums;
 }
 .case p {
   max-width: 56ch;
@@ -617,6 +650,7 @@ h3 { line-height: 1.15; }
   color: var(--ink-soft);
 }
 .case p b { font-weight: 600; color: var(--ink); }
+.case p.case__result b { color: var(--accent); }
 .case__result { color: var(--ink) !important; }
 .cases + .note, #cases .note { margin-top: 36px; }
 
@@ -647,7 +681,7 @@ h3 { line-height: 1.15; }
   background: var(--blue);
   color: var(--paper);
 }
-.price-panel h3 { color: var(--paper); font-size: var(--step-head); }
+.price-panel h3 { color: var(--paper); font-size: var(--step-subhead); }
 .price-panel p {
   margin-top: 12px;
   font-size: var(--step-body);
@@ -708,6 +742,7 @@ h3 { line-height: 1.15; }
 }
 .contact__phone {
   display: inline-block;
+  white-space: nowrap;
   margin-top: clamp(32px, 6vh, 60px);
   font-family: var(--font-serif);
   font-size: clamp(2rem, 7.6vw, 5.75rem);
@@ -991,6 +1026,7 @@ h3 { line-height: 1.15; }
   .hero h1 { max-width: 14ch; }
   .hero-facts { gap: 16px; }
   .facts div { gap: 3px; }
+  .about .lead { font-size: var(--step-body); }
   .contact__foot { gap: 22px; }
 }
 

@@ -1,5 +1,6 @@
 /* =========================================================
-   Кирилл Чигирин, юрист. Айдентика 2026: бумага, тушь, синий.
+   Кирилл Чигирин, юрист. Айдентика 2026: бумага, синий и янтарь.
+   Настройки: смелость 5/10, анимация 7/10, плотность 7/10.
    Одна сетка, один шрифт для текста, один для заголовков.
    ========================================================= */
 
@@ -39,13 +40,15 @@
 
 /* ---------- Tokens ---------- */
 :root {
-  --paper: #ecebe8;
-  --paper-2: #e1e0db;
-  --ink: #17181a;
-  --ink-soft: #4a4d53;
-  --blue: #17365f;
-  --blue-deep: #102744;
-  --blue-soft: #d9e1ec;
+  --paper: #f8fafc;
+  --paper-2: #e9eef5;
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --blue: #1e3a8a;
+  --blue-deep: #172554;
+  --blue-soft: #dbe4f3;
+  --accent: #b45309;
+  --accent-deep: #8a3f07;
 
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-serif: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
@@ -106,6 +109,11 @@ a:hover { color: var(--blue-deep); text-decoration-thickness: 2px; }
   outline-offset: 3px;
 }
 
+.contact :focus-visible,
+.price-panel :focus-visible {
+  outline-color: var(--paper);
+}
+
 svg { display: block; }
 
 .wrap {
@@ -113,6 +121,8 @@ svg { display: block; }
   padding-inline: var(--gap);
   margin-inline: auto;
 }
+
+html.lenis { scroll-behavior: auto; scroll-padding-top: 0; }
 
 .skip-link {
   position: fixed;
@@ -190,11 +200,12 @@ h3 { line-height: 1.15; }
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: background .2s var(--ease), color .2s var(--ease);
+  transition: background .2s var(--ease), color .2s var(--ease), transform .15s var(--ease);
 }
 
-.btn--primary { background: var(--blue); color: var(--paper); }
-.btn--primary:hover { background: var(--blue-deep); color: var(--paper); }
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-deep); color: #fff; }
+.btn:active { transform: translateY(1px); }
 
 .btn--paper { background: var(--paper); color: var(--blue); }
 .btn--paper:hover { background: #fff; color: var(--blue-deep); }
@@ -331,7 +342,7 @@ h3 { line-height: 1.15; }
 
 .stage__col {
   min-width: 0;
-  padding: clamp(32px, 6vh, 72px) var(--gap) clamp(72px, 10vh, 120px) var(--gap);
+  padding: clamp(28px, 4vh, 56px) var(--gap) clamp(56px, 8vh, 96px) var(--gap);
 }
 
 .stage__media {
@@ -349,6 +360,7 @@ h3 { line-height: 1.15; }
 }
 
 .shot {
+  --shot-scale: 1;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -356,12 +368,20 @@ h3 { line-height: 1.15; }
   object-fit: cover;
   object-position: 50% 32%;
   opacity: 0;
-  transition: opacity 1.4s var(--ease), transform 1.4s var(--ease);
+  transform: scale(var(--shot-scale));
+  transition: opacity 1.4s var(--ease);
   will-change: opacity, transform;
 }
-.shot.is-active { opacity: 1; }
-.shot[data-shot="about"] { object-position: 50% 2%; transform: scale(1.24); }
-.shot[data-shot="process"] { object-position: 54% 42%; transform: scale(1.5); }
+.shot.is-active {
+  opacity: 1;
+  animation: shot-drift 16s ease-in-out infinite alternate;
+}
+.shot[data-shot="about"] { object-position: 50% 2%; --shot-scale: 1.24; }
+.shot[data-shot="process"] { object-position: 54% 42%; --shot-scale: 1.5; }
+
+@keyframes shot-drift {
+  to { transform: scale(calc(var(--shot-scale) * 1.035)); }
+}
 
 .hero { padding-top: clamp(8px, 3vh, 40px); }
 
@@ -393,7 +413,7 @@ h3 { line-height: 1.15; }
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 26px;
-  margin-top: clamp(44px, 9vh, 90px);
+  margin-top: clamp(36px, 6vh, 68px);
 }
 .hero-facts strong {
   display: block;
@@ -410,12 +430,12 @@ h3 { line-height: 1.15; }
 }
 
 /* ---------- Разделы внутри первой колонки ---------- */
-.stage__section { margin-top: clamp(72px, 12vh, 132px); }
+.stage__section { margin-top: clamp(64px, 9vh, 104px); }
 .stage__section h2 { margin-bottom: 22px; }
 
 .about p {
   max-width: 46ch;
-  margin-top: 18px;
+  margin-top: 14px;
   color: var(--ink-soft);
 }
 .about .lead { margin-top: 0; color: var(--ink); }
@@ -427,15 +447,15 @@ h3 { line-height: 1.15; }
 
 .facts {
   display: grid;
-  gap: 22px;
-  margin-top: 40px;
+  gap: 18px;
+  margin-top: 32px;
   max-width: 52ch;
 }
 .facts div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; }
 .facts dt { font-size: var(--step-sm); font-weight: 600; color: var(--blue); }
 .facts dd { font-size: var(--step-sm); line-height: 1.55; color: var(--ink-soft); }
 
-.map-plate { margin-top: 48px; }
+.map-plate { margin-top: 36px; }
 .map-plate img {
   width: 100%;
   height: auto;
@@ -451,10 +471,10 @@ h3 { line-height: 1.15; }
   color: var(--ink-soft);
 }
 
-.process .lead { margin-bottom: 38px; }
+.process .lead { margin-bottom: 28px; }
 .steps {
   display: grid;
-  gap: 30px;
+  gap: 24px;
   counter-reset: step;
 }
 .steps li {
@@ -477,8 +497,8 @@ h3 { line-height: 1.15; }
 .steps p { margin-top: 6px; max-width: 44ch; font-size: var(--step-sm); color: var(--ink-soft); }
 
 .process__out {
-  margin-top: 44px;
-  padding: 22px 24px;
+  margin-top: 32px;
+  padding: 18px 22px;
   background: var(--blue);
   color: var(--paper);
   font-size: var(--step-body);
@@ -487,9 +507,9 @@ h3 { line-height: 1.15; }
 .process .note { margin-top: 24px; }
 
 /* ---------- Фотополоса ---------- */
-.band { margin-top: clamp(72px, 11vw, 150px); }
+.band { margin-top: clamp(56px, 8vw, 110px); }
 .band__media {
-  height: min(56vh, 560px);
+  height: min(46vh, 480px);
   overflow: hidden;
   background: var(--paper-2);
 }
@@ -509,14 +529,14 @@ h3 { line-height: 1.15; }
 }
 
 /* ---------- Секции ---------- */
-.section { padding: clamp(84px, 11vw, 140px) 0; }
+.section { padding: clamp(64px, 8vw, 104px) 0; }
 .section-head { max-width: 640px; }
 .section-head h2 { margin-bottom: 20px; }
 .section-head .note { margin-top: 22px; }
 
 /* ---------- Услуги ---------- */
 .services-grid { display: block; }
-.services-grid .section-head { max-width: 760px; margin-bottom: clamp(44px, 6vw, 64px); }
+.services-grid .section-head { max-width: 760px; margin-bottom: clamp(36px, 5vw, 52px); }
 .services-grid .section-head h2 { margin-bottom: 18px; }
 .services-grid .lead { font-size: var(--step-body); line-height: 1.6; color: var(--ink-soft); }
 
@@ -538,17 +558,22 @@ h3 { line-height: 1.15; }
   color: var(--ink);
 }
 .chooser__out[hidden] { display: none; }
+.chooser__out:not([hidden]) { animation: answer-in .4s var(--ease) both; }
+@keyframes answer-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
 
 .services {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(40px, 5vw, 64px) clamp(36px, 5vw, 64px);
+  gap: clamp(32px, 4vw, 48px) clamp(32px, 4vw, 56px);
 }
 .service { scroll-margin-top: calc(var(--header-h) + 24px); }
 .service h3 { font-size: var(--step-head); }
 .service p {
   max-width: 50ch;
-  margin-top: 12px;
+  margin-top: 10px;
   color: var(--ink-soft);
 }
 .service p b { font-weight: 600; color: var(--ink); }
@@ -579,7 +604,7 @@ h3 { line-height: 1.15; }
   color: var(--ink-soft);
 }
 
-.cases { display: grid; gap: clamp(48px, 7vh, 80px); }
+.cases { display: grid; gap: clamp(40px, 6vh, 64px); }
 .case h3 { font-size: var(--step-head); }
 .case__meta {
   margin-top: 10px;
@@ -588,12 +613,12 @@ h3 { line-height: 1.15; }
 }
 .case p {
   max-width: 56ch;
-  margin-top: 14px;
+  margin-top: 12px;
   color: var(--ink-soft);
 }
 .case p b { font-weight: 600; color: var(--ink); }
 .case__result { color: var(--ink) !important; }
-.cases + .note, #cases .note { margin-top: 48px; }
+.cases + .note, #cases .note { margin-top: 36px; }
 
 /* ---------- Стоимость ---------- */
 .pricing-grid {
@@ -605,8 +630,8 @@ h3 { line-height: 1.15; }
 .pricing-grid .lead { color: var(--ink-soft); }
 .factors {
   display: grid;
-  gap: 20px;
-  margin-top: 26px;
+  gap: 16px;
+  margin-top: 20px;
 }
 .factors li {
   max-width: 56ch;
@@ -618,21 +643,21 @@ h3 { line-height: 1.15; }
 .price-panel {
   position: sticky;
   top: calc(var(--header-h) + 32px);
-  padding: clamp(28px, 3.4vw, 44px);
+  padding: clamp(24px, 3vw, 36px);
   background: var(--blue);
   color: var(--paper);
 }
 .price-panel h3 { color: var(--paper); font-size: var(--step-head); }
 .price-panel p {
-  margin-top: 16px;
+  margin-top: 12px;
   font-size: var(--step-body);
   line-height: 1.55;
   color: var(--paper);
 }
 .price-panel ul {
   display: grid;
-  gap: 10px;
-  margin-top: 24px;
+  gap: 8px;
+  margin-top: 18px;
 }
 .price-panel li {
   position: relative;
@@ -647,8 +672,8 @@ h3 { line-height: 1.15; }
   top: 0;
   font-weight: 700;
 }
-.price-panel__terms { margin-top: 26px !important; font-size: var(--step-sm) !important; color: rgba(236, 235, 232, .88) !important; }
-.price-panel .btn { margin-top: 28px; width: 100%; }
+.price-panel__terms { margin-top: 26px !important; font-size: var(--step-sm) !important; color: rgba(248, 250, 252, .88) !important; }
+.price-panel .btn { margin-top: 22px; width: 100%; }
 
 /* ---------- Вопросы ---------- */
 .faq-grid {
@@ -657,10 +682,10 @@ h3 { line-height: 1.15; }
   gap: clamp(40px, 6vw, 88px);
   align-items: start;
 }
-.faq-text { columns: 2; column-gap: 48px; }
+.faq-text { columns: 2; column-gap: 40px; }
 .faq-text p {
   break-inside: avoid;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   font-size: var(--step-body);
   line-height: 1.55;
   color: var(--ink-soft);
@@ -669,7 +694,7 @@ h3 { line-height: 1.15; }
 
 /* ---------- Контакты ---------- */
 .contact {
-  padding: clamp(80px, 11vw, 140px) 0 clamp(56px, 8vw, 96px);
+  padding: clamp(64px, 8vw, 104px) 0 clamp(48px, 7vw, 80px);
   background: var(--blue);
   color: var(--paper);
 }
@@ -679,11 +704,11 @@ h3 { line-height: 1.15; }
   max-width: 48ch;
   font-size: var(--step-body);
   line-height: 1.55;
-  color: rgba(236, 235, 232, .86);
+  color: rgba(248, 250, 252, .86);
 }
 .contact__phone {
   display: inline-block;
-  margin-top: clamp(40px, 8vh, 78px);
+  margin-top: clamp(32px, 6vh, 60px);
   font-family: var(--font-serif);
   font-size: clamp(2rem, 7.6vw, 5.75rem);
   font-weight: 600;
@@ -700,19 +725,19 @@ h3 { line-height: 1.15; }
   justify-content: space-between;
   align-items: flex-start;
   gap: 26px 40px;
-  margin-top: clamp(44px, 8vh, 76px);
+  margin-top: clamp(36px, 6vh, 56px);
   font-size: var(--step-sm);
   line-height: 1.55;
-  color: rgba(236, 235, 232, .88);
+  color: rgba(248, 250, 252, .88);
 }
 .contact__foot > div { max-width: 32ch; }
 .contact__label {
   display: block;
   margin-bottom: 4px;
   font-size: var(--step-sm);
-  color: rgba(236, 235, 232, .7);
+  color: rgba(248, 250, 252, .7);
 }
-.contact__foot a { color: var(--paper); text-decoration-color: rgba(236, 235, 232, .5); }
+.contact__foot a { color: var(--paper); text-decoration-color: rgba(248, 250, 252, .5); }
 .contact__foot a:hover { color: #fff; text-decoration-color: #fff; }
 .contact__vcard {
   align-self: flex-end;
@@ -722,7 +747,7 @@ h3 { line-height: 1.15; }
 }
 
 /* ---------- Footer ---------- */
-.site-footer { padding: clamp(64px, 9vw, 116px) 0 32px; }
+.site-footer { padding: clamp(56px, 8vw, 96px) 0 28px; }
 .footer-brand {
   font-size: var(--step-display);
   line-height: .95;
@@ -737,7 +762,7 @@ h3 { line-height: 1.15; }
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
   gap: 40px;
-  margin-top: clamp(48px, 7vw, 72px);
+  margin-top: clamp(40px, 6vw, 56px);
 }
 .footer-col h2 {
   margin-bottom: 16px;
@@ -754,7 +779,7 @@ h3 { line-height: 1.15; }
   display: flex;
   flex-wrap: wrap;
   gap: 10px 40px;
-  margin-top: clamp(48px, 7vw, 72px);
+  margin-top: clamp(40px, 6vw, 56px);
   padding: 22px 24px;
   background: var(--paper-2);
   font-size: var(--step-sm);
@@ -863,18 +888,21 @@ h3 { line-height: 1.15; }
 /* ---------- Появление при скролле ---------- */
 .js-boot .reveal > * {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .7s var(--ease), transform .7s var(--ease);
+  transform: translateY(26px);
+  transition: opacity .75s var(--ease), transform .75s var(--ease);
 }
 .js-boot .reveal.is-in > * { opacity: 1; transform: none; }
-.js-boot .reveal.is-in > *:nth-child(2) { transition-delay: .07s; }
-.js-boot .reveal.is-in > *:nth-child(3) { transition-delay: .14s; }
-.js-boot .reveal.is-in > *:nth-child(4) { transition-delay: .21s; }
-.js-boot .reveal.is-in > *:nth-child(5) { transition-delay: .28s; }
-.js-boot .reveal.is-in > *:nth-child(6) { transition-delay: .35s; }
+.js-boot .reveal.is-in > *:nth-child(2) { transition-delay: .08s; }
+.js-boot .reveal.is-in > *:nth-child(3) { transition-delay: .16s; }
+.js-boot .reveal.is-in > *:nth-child(4) { transition-delay: .24s; }
+.js-boot .reveal.is-in > *:nth-child(5) { transition-delay: .32s; }
+.js-boot .reveal.is-in > *:nth-child(6) { transition-delay: .40s; }
 
-.js-boot .stage__media { animation: media-in .9s var(--ease) .1s both; }
-@keyframes media-in { from { opacity: 0; } to { opacity: 1; } }
+.js-boot .stage__media { animation: media-wipe 1.15s var(--ease) .08s both; }
+@keyframes media-wipe {
+  from { opacity: 0; clip-path: inset(0 0 100% 0); }
+  to { opacity: 1; clip-path: inset(0); }
+}
 
 /* =========================================================
    Адаптив
@@ -943,9 +971,9 @@ h3 { line-height: 1.15; }
   .hero-actions { align-items: flex-start; }
   .hero-actions .btn { width: 100%; }
   .link-plain { display: inline-block; padding: 4px 0; }
-  .section { padding: 72px 0; }
-  .stage__section { margin-top: 96px; }
-  .band__media { height: 40vh; min-height: 240px; }
+  .section { padding: 64px 0; }
+  .stage__section { margin-top: 80px; }
+  .band__media { height: 36vh; min-height: 220px; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; }
   .contact__foot { flex-direction: column; }
@@ -975,4 +1003,5 @@ h3 { line-height: 1.15; }
   }
   .js-boot .reveal > * { opacity: 1; transform: none; }
   .band__media img { transform: none; }
+  .shot { animation: none !important; transform: scale(var(--shot-scale)); }
 }

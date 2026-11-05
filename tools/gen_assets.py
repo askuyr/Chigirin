@@ -23,11 +23,11 @@ ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
 FONTS = Path("C:/Windows/Fonts")
 
-PAPER = (236, 235, 232)
-PAPER_TEXT = (236, 235, 232)
-BLUE = (23, 54, 95)
-INK = (23, 24, 26)
-MUTED = (214, 224, 238)
+PAPER = (248, 250, 252)
+PAPER_TEXT = (248, 250, 252)
+BLUE = (30, 58, 138)
+INK = (15, 23, 42)
+MUTED = (203, 213, 225)
 
 src = Image.open(ASSETS / "kirill-chigirin.jpg").convert("RGB")
 

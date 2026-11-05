@@ -6,6 +6,29 @@
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+  /* --- Плавная прокрутка (Lenis, локальная копия) ------------------- */
+  const lenis = (window.Lenis && !reduceMotion.matches)
+    ? new window.Lenis({
+        autoRaf: true,
+        anchors: { offset: -88 },
+        duration: 1.15,
+        smoothWheel: true,
+        wheelMultiplier: .95,
+        touchMultiplier: 1.4,
+        respectReducedMotion: true
+      })
+    : null;
+
+  /* Программный прыжок (якорь из другого места, восстановление позиции,
+     отладка) важнее инерции: иначе Lenis возвращает старую позицию. */
+  if (lenis) {
+    window.addEventListener('scroll', () => {
+      if (lenis.isScrolling !== 'smooth') return;
+      if (Math.abs(window.scrollY - lenis.animatedScroll) < 120) return;
+      lenis.scrollTo(window.scrollY, { immediate: true, force: true });
+    }, { passive: true });
+  }
+
   /* --- Мобильное меню ---------------------------------------------- */
   const nav = $('#navigation');
   const menuToggle = $('.menu-toggle');
@@ -161,7 +184,11 @@
     }, { passive: true });
 
     toTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      if (lenis) {
+        lenis.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      }
       const brand = $('.brand');
       if (brand) brand.focus({ preventScroll: true });
     });

@@ -1,5 +1,7 @@
 # Кирилл Чигирин — сайт юриста
 
+[![Live site](https://img.shields.io/badge/live-site-2ea44f)](https://askuyr.github.io/Chigirin/) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+
 Одностраничный сайт юриста по гражданским спорам в Санкт-Петербурге.
 Чистая статика для GitHub Pages: без сборки, фреймворков, сторонних библиотек
 и внешних сервисов. Единственное действие на сайте — звонок или письмо.

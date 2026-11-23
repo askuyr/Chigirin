@@ -1053,3 +1053,12 @@ p, li, dd { text-wrap: pretty; }
   .band__media img { transform: none; }
   .hero-portrait img { transform: none; }
 }
+
+/* Подпись студии — встроена в нижний блок с данными */
+.vd-stamp{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:0;color:inherit;font:inherit}
+.vd-stamp__mark{display:flex;align-items:center;gap:8px;color:inherit;text-decoration:none}
+.vd-stamp__box{border:1px solid currentColor;padding:3px 6px;font-size:10px;line-height:1;letter-spacing:.12em;text-transform:uppercase;opacity:.85;white-space:nowrap}
+.vd-stamp__box i{font-style:normal;opacity:.6;margin-left:.25em}
+.vd-stamp__year{font-size:10px;letter-spacing:.1em;opacity:.65}
+.vd-stamp__note{opacity:.8}
+.vd-stamp__note a{color:inherit;text-decoration:underline;text-underline-offset:2px}

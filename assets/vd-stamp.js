@@ -1,5 +1,6 @@
 /* VORONKOV.DESIGN — подпись студии в подвале сайта.
-   Подключение: <script src="vd-stamp.js" defer></script> ... <vd-stamp></vd-stamp> */
+   Подключение: <script src="vd-stamp.js" defer></script> ... <vd-stamp year="2026"></vd-stamp>
+   year — год создания сайта. Не указан — подставится текущий. */
 (function () {
   var CSS =
     'vd-stamp{display:block}' +
@@ -13,15 +14,16 @@
     'vd-stamp .vd-stamp__note a{color:inherit;text-decoration:underline;text-underline-offset:2px}' +
     '@media (prefers-reduced-motion:no-preference){vd-stamp .vd-stamp__note a{transition:opacity .2s}vd-stamp .vd-stamp__note a:hover{opacity:.7}}';
 
-  var HTML =
-    '<div class="vd-stamp">' +
-    '<a class="vd-stamp__mark" href="https://voronkov-design.ru/" target="_blank" rel="noopener">' +
-    '<svg class="vd-stamp__logo" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M0 0h32v32H0Zm7 8h5.6L16 21.4 19.4 8H25l-5.4 16h-7.2Z"/></svg>' +
-    '<span class="vd-stamp__box">VORONKOV<i>.DESIGN</i></span>' +
-    '<span class="vd-stamp__year">2026</span>' +
-    '</a>' +
-    '<span class="vd-stamp__note">Задизайнено в студии <a href="https://voronkov-design.ru/" target="_blank" rel="noopener">Воронкова</a></span>' +
-    '</div>';
+  function markup(year) {
+    return '<div class="vd-stamp">' +
+      '<a class="vd-stamp__mark" href="https://voronkov-design.ru/" target="_blank" rel="noopener">' +
+      '<svg class="vd-stamp__logo" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M0 0h32v32H0Zm7 8h5.6L16 21.4 19.4 8H25l-5.4 16h-7.2Z"/></svg>' +
+      '<span class="vd-stamp__box">VORONKOV<i>.DESIGN</i></span>' +
+      '<span class="vd-stamp__year">' + year + '</span>' +
+      '</a>' +
+      '<span class="vd-stamp__note">Задизайнено в студии <a href="https://voronkov-design.ru/" target="_blank" rel="noopener">Воронкова</a></span>' +
+      '</div>';
+  }
 
   if (!document.getElementById('vd-stamp-style')) {
     var style = document.createElement('style');
@@ -34,7 +36,9 @@
     customElements.define('vd-stamp', class extends HTMLElement {
       connectedCallback() {
         if (this.childElementCount) return;
-        this.innerHTML = HTML;
+        var year = (this.getAttribute('year') || '').trim();
+        if (!/^\d{4}$/.test(year)) year = String(new Date().getFullYear());
+        this.innerHTML = markup(year);
       }
     });
   }
